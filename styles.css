@@ -984,6 +984,27 @@ a {
     font-size: var(--text-sm);
 }
 
+/* Additional utilities */
+.quote-card {
+    background: var(--gray-50);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    margin: var(--space-xl) 0;
+    border-left: 4px solid var(--primary-500);
+}
+
+.quote-text {
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--gray-700);
+    margin-bottom: var(--space-md);
+}
+
+.quote-author {
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-menu {

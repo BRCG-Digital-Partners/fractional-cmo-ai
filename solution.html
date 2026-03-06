@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solution: AI-Powered CMO | Meridian AI</title>
+    <meta name="description" content="Complete marketing audits in 2 hours. Continuous monitoring. Automatic fixes. Finally, strategy instead of firefighting.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        .solution-hero { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 120px 0 80px; }
+        .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin: var(--space-3xl) 0; }
+        .before-after-card { background: white; padding: var(--space-2xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
+        .before { border: 3px solid var(--error-200); }
+        .after { border: 3px solid var(--success-200); }
+        .ba-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .ba-icon { font-size: var(--text-3xl); }
+        .ba-title { font-size: var(--text-xl); font-weight: 700; }
+        .before .ba-title { color: var(--error-700); }
+        .after .ba-title { color: var(--success-700); }
+        .ba-list { list-style: none; }
+        .ba-list li { padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm); }
+        .ba-list li:before { content: "✗"; color: var(--error-500); font-weight: 700; }
+        .after .ba-list li:before { content: "✓"; color: var(--success-500); }
+        .process-visual { background: white; padding: var(--space-3xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); margin: var(--space-3xl) 0; }
+        .process-flow { display: flex; align-items: center; justify-content: space-between; margin: var(--space-2xl) 0; }
+        .process-node { text-align: center; flex: 1; }
+        .process-icon { width: 100px; height: 100px; background: var(--primary-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-4xl); margin: 0 auto var(--space-md); }
+        .process-arrow { font-size: var(--text-3xl); color: var(--gray-300); }
+        .feature-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin: var(--space-3xl) 0; }
+        .fc-card { background: var(--gray-50); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center; }
+        .fc-metric { font-size: var(--text-4xl); font-weight: 800; color: var(--primary-600); }
+        .fc-label { font-size: var(--text-lg); color: var(--gray-700); margin-bottom: var(--space-sm); }
+        .fc-detail { font-size: var(--text-sm); color: var(--gray-600); }
+        .agent-showcase { background: var(--gray-900); color: white; padding: var(--space-3xl); border-radius: var(--radius-xl); margin: var(--space-2xl) 0; }
+        .agent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-top: var(--space-2xl); }
+        .agent-item { background: var(--gray-800); padding: var(--space-lg); border-radius: var(--radius-lg); transition: all 0.3s; }
+        .agent-item:hover { background: var(--gray-700); transform: translateY(-4px); }
+        .monitoring-demo { background: white; border-radius: var(--radius-xl); padding: var(--space-2xl); box-shadow: var(--shadow-lg); margin: var(--space-2xl) 0; }
+        .alert-item { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--warning-50); border-left: 4px solid var(--warning-500); border-radius: var(--radius-md); margin-bottom: var(--space-md); }
+        .alert-icon { font-size: var(--text-2xl); }
+        .alert-content { flex: 1; }
+        .alert-action { background: var(--warning-600); color: white; padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-size: var(--text-sm); font-weight: 600; }
+    </style>
+</head>
+<body x-data="{ showMonitoring: false }">
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="nav-logo" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                </svg>
+                <span class="nav-name">Meridian</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="problem.html" class="nav-link">The Problem</a>
+                <a href="solution.html" class="nav-link">Solution</a>
+                <button class="btn btn-primary btn-sm">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Solution Hero -->
+    <section class="solution-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Finally, CMOs Can<br>
+                    <span class="hero-gradient">Do Strategy</span>
+                </h1>
+                <p class="hero-subtitle">
+                    AI completes the audit. AI monitors everything. AI fixes the basics.<br>
+                    Your CMO focuses on what matters: growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After -->
+    <section class="features" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">The Meridian Difference</h2>
+            
+            <div class="before-after">
+                <div class="before-after-card before">
+                    <div class="ba-header">
+                        <span class="ba-icon">😫</span>
+                        <h3 class="ba-title">Before: Traditional Fractional CMO</h3>
+                    </div>
+                    <ul class="ba-list">
+                        <li>3-6 months for partial audit</li>
+                        <li>$15,000/month burning on firefighting</li>
+                        <li>No time for strategic work</li>
+                        <li>Constant context switching</li>
+                        <li>Stakeholder frustration growing</li>
+                        <li>Problems discovered too late</li>
+                        <li>Manual everything</li>
+                        <li>Strategy always "next quarter"</li>
+                    </ul>
+                </div>
+                
+                <div class="before-after-card after">
+                    <div class="ba-header">
+                        <span class="ba-icon">🚀</span>
+                        <h3 class="ba-title">After: Meridian AI + Your CMO</h3>
+                    </div>
+                    <ul class="ba-list">
+                        <li>Complete audit in 2 hours</li>
+                        <li>$497/month for AI platform</li>
+                        <li>CMO 100% focused on strategy</li>
+                        <li>AI handles routine tasks</li>
+                        <li>Real-time executive dashboards</li>
+                        <li>24/7 monitoring catches issues early</li>
+                        <li>Automated fixes deployed</li>
+                        <li>Strategy implementation today</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="features" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">The 2-Hour Audit That Changes Everything</h2>
+            
+            <div class="process-visual">
+                <div class="process-flow">
+                    <div class="process-node">
+                        <div class="process-icon">🔗</div>
+                        <h3>1. Connect</h3>
+                        <p>Enter your URL or connect tools via API</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-node">
+                        <div class="process-icon">🤖</div>
+                        <h3>2. AI Analysis</h3>
+                        <p>150+ checkpoints analyzed instantly</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-node">
+                        <div class="process-icon">📊</div>
+                        <h3>3. Instant Report</h3>
+                        <p>Prioritized roadmap with scores</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-node">
+                        <div class="process-icon">⚡</div>
+                        <h3>4. Deploy Fixes</h3>
+                        <p>One-click AI agent deployment</p>
+                    </div>
+                </div>
+                
+                <div class="feature-comparison">
+                    <div class="fc-card">
+                        <div class="fc-label">Analysis Time</div>
+                        <div class="fc-metric">2 hours</div>
+                        <div class="fc-detail">vs 3-6 months manual</div>
+                    </div>
+                    <div class="fc-card">
+                        <div class="fc-label">Data Points</div>
+                        <div class="fc-metric">150+</div>
+                        <div class="fc-detail">Comprehensive coverage</div>
+                    </div>
+                    <div class="fc-card">
+                        <div class="fc-label">Cost</div>
+                        <div class="fc-metric">97%</div>
+                        <div class="fc-detail">Less than manual audit</div>
+                    </div>
+                    <div class="fc-card">
+                        <div class="fc-label">Accuracy</div>
+                        <div class="fc-metric">99.9%</div>
+                        <div class="fc-detail">Data-driven, not opinions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Agents -->
+    <section class="features" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Your 24/7 Marketing Operations Team</h2>
+            <p class="section-subtitle">AI agents that work while your CMO strategizes</p>
+            
+            <div class="agent-showcase">
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-lg);">
+                    Specialized AI Agents Handle the Routine
+                </h3>
+                
+                <div class="agent-grid">
+                    <div class="agent-item">
+                        <span style="font-size: var(--text-2xl); margin-bottom: var(--space-sm); display: block;">🔍</span>
+                        <h4 style="margin-bottom: var(--space-xs);">SEO Agent</h4>
+                        <p style="font-size: var(--text-sm); opacity: 0.8;">
+                            Creates sitemaps, fixes meta tags, implements schema, monitors rankings
+                        </p>
+                    </div>
+                    <div class="agent-item">
+                        <span style="font-size: var(--text-2xl); margin-bottom: var(--space-sm); display: block;">📝</span>
+                        <h4 style="margin-bottom: var(--space-xs);">Content Agent</h4>
+                        <p style="font-size: var(--text-sm); opacity: 0.8;">
+                            Generates blog posts, updates stale content, optimizes for keywords
+                        </p>
+                    </div>
+                    <div class="agent-item">
+                        <span style="font-size: var(--text-2xl); margin-bottom: var(--space-sm); display: block;">⚡</span>
+                        <h4 style="margin-bottom: var(--space-xs);">Performance Agent</h4>
+                        <p style="font-size: var(--text-sm); opacity: 0.8;">
+                            Compresses images, implements caching, optimizes load times
+                        </p>
+                    </div>
+                    <div class="agent-item">
+                        <span style="font-size: var(--text-2xl); margin-bottom: var(--space-sm); display: block;">💰</span>
+                        <h4 style="margin-bottom: var(--space-xs);">PPC Agent</h4>
+                        <p style="font-size: var(--text-sm); opacity: 0.8;">
+                            Optimizes bids, A/B tests ads, manages budgets, tracks conversions
+                        </p>
+                    </div>
+                    <div class="agent-item">
+                        <span style="font-size: var(--text-2xl); margin-bottom: var(--space-sm); display: block;">📧</span>
+                        <h4 style="margin-bottom: var(--space-xs);">Email Agent</h4>
+                        <p style="font-size: var(--text-sm); opacity: 0.8;">
+                            Sets up automation, segments lists, optimizes deliverability
+                        </p>
+                    </div>
+                    <div class="agent-item">
+                        <span style="font-size: var(--text-2xl); margin-bottom: var(--space-sm); display: block;">📊</span>
+                        <h4 style="margin-bottom: var(--space-xs);">Analytics Agent</h4>
+                        <p style="font-size: var(--text-sm); opacity: 0.8;">
+                            Implements tracking, builds dashboards, monitors KPIs
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Continuous Monitoring -->
+    <section class="features" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Never Get Caught Off Guard Again</h2>
+            <p class="section-subtitle">AI monitors everything 24/7 and only alerts what matters</p>
+            
+            <div class="monitoring-demo">
+                <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-xl);">
+                    Smart Alert System — Only Strategic Issues Reach Your CMO
+                </h3>
+                
+                <div class="alert-item">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Competitor Launch Detected</strong>
+                        <p style="font-size: var(--text-sm); color: var(--gray-700); margin-top: var(--space-xs);">
+                            Competitor A launched new pricing model. 15% lower than yours. Market responding positively.
+                        </p>
+                    </div>
+                    <button class="alert-action">Strategic Response</button>
+                </div>
+                
+                <div class="alert-item">
+                    <span class="alert-icon">📈</span>
+                    <div class="alert-content">
+                        <strong>Growth Opportunity Identified</strong>
+                        <p style="font-size: var(--text-sm); color: var(--gray-700); margin-top: var(--space-xs);">
+                            "Project management" keyword cluster showing 300% search growth. You're not targeting it.
+                        </p>
+                    </div>
+                    <button class="alert-action">Explore Strategy</button>
+                </div>
+                
+                <div class="alert-item">
+                    <span class="alert-icon">🎯</span>
+                    <div class="alert-content">
+                        <strong>Campaign Performance Anomaly</strong>
+                        <p style="font-size: var(--text-sm); color: var(--gray-700); margin-top: var(--space-xs);">
+                            LinkedIn ads outperforming Google by 3x. Budget reallocation could save $50K/quarter.
+                        </p>
+                    </div>
+                    <button class="alert-action">Review & Reallocate</button>
+                </div>
+                
+                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--success-50); border-radius: var(--radius-lg); text-align: center;">
+                    <p style="font-size: var(--text-lg); color: var(--success-700); font-weight: 600;">
+                        ✓ Meanwhile, AI agents automatically handled 47 routine issues this week
+                    </p>
+                    <p style="font-size: var(--text-sm); color: var(--success-600); margin-top: var(--space-xs);">
+                        Meta tags updated • Image compression completed • Email flows optimized • And more...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="features" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">The Math Is Simple</h2>
+            
+            <div class="cost-breakdown" style="background: var(--primary-50); color: var(--gray-900);">
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-xl); color: var(--primary-700);">
+                    Your New Marketing Leadership Stack
+                </h3>
+                
+                <div class="cost-item" style="border-color: var(--primary-200);">
+                    <span>Meridian AI Platform</span>
+                    <span style="color: var(--primary-600); font-weight: 700;">$497/month</span>
+                </div>
+                <div class="cost-item" style="border-color: var(--primary-200);">
+                    <span>Strategic CMO (10 hours/week)</span>
+                    <span>$8,000/month</span>
+                </div>
+                <div class="cost-item" style="border-color: var(--primary-200);">
+                    <span>Total Investment</span>
+                    <span style="font-weight: 700;">$8,497/month</span>
+                </div>
+                
+                <div style="margin: var(--space-xl) 0; padding: var(--space-lg); background: white; border-radius: var(--radius-lg);">
+                    <h4 style="color: var(--success-600); margin-bottom: var(--space-sm);">You Get:</h4>
+                    <ul style="list-style: none;">
+                        <li style="padding: var(--space-xs) 0;">✓ Complete audit in 2 hours (not 3 months)</li>
+                        <li style="padding: var(--space-xs) 0;">✓ 24/7 monitoring and alerts</li>
+                        <li style="padding: var(--space-xs) 0;">✓ Automated fixes for routine issues</li>
+                        <li style="padding: var(--space-xs) 0;">✓ CMO 100% focused on strategy</li>
+                        <li style="padding: var(--space-xs) 0;">✓ Real-time executive dashboards</li>
+                    </ul>
+                </div>
+                
+                <div class="cost-total" style="color: var(--success-600);">
+                    <span>Savings vs Traditional Fractional</span>
+                    <span>$6,503/month (43%)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Preview -->
+    <section class="features" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">CMOs Love Working With Meridian</h2>
+            
+            <div class="quote-card">
+                <p class="quote-text">
+                    "For the first time in my fractional career, I completed a full audit in week one. 
+                    By week two, we were implementing strategy. By month two, we saw 40% improvement in qualified leads. 
+                    This is what I thought fractional work would be like."
+                </p>
+                <p class="quote-author">— Sarah Chen, Fractional CMO</p>
+            </div>
+            
+            <div class="quote-card">
+                <p class="quote-text">
+                    "I used to spend 80% of my time on tasks any marketing coordinator could handle. 
+                    Now AI handles all that, and I focus on what I'm actually good at: strategy, positioning, and growth. 
+                    My clients are getting 10x more value."
+                </p>
+                <p class="quote-author">— Marcus Rodriguez, Growth Advisor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-cta">
+        <div class="container">
+            <h2>Stop Paying for a $180K Firefighter</h2>
+            <p style="font-size: var(--text-xl); margin-bottom: var(--space-xl);">
+                Start getting the strategic leadership you actually need.
+            </p>
+            
+            <div style="display: flex; gap: var(--space-xl); justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <p style="font-size: var(--text-4xl); font-weight: 800; color: var(--primary-600);">2 hours</p>
+                    <p style="color: var(--gray-600);">to complete audit</p>
+                </div>
+                <div style="font-size: var(--text-3xl); color: var(--gray-300);">×</div>
+                <div style="text-align: center;">
+                    <p style="font-size: var(--text-4xl); font-weight: 800; color: var(--primary-600);">$497</p>
+                    <p style="color: var(--gray-600);">per month</p>
+                </div>
+                <div style="font-size: var(--text-3xl); color: var(--gray-300);">=</div>
+                <div style="text-align: center;">
+                    <p style="font-size: var(--text-4xl); font-weight: 800; color: var(--primary-600);">100%</p>
+                    <p style="color: var(--gray-600);">strategic focus</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: var(--space-2xl);">
+                <a href="index.html#demo" class="btn btn-primary btn-lg">Try Free Demo</a>
+                <p style="margin-top: var(--space-md); opacity: 0.8;">See your marketing score in minutes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                        </svg>
+                        <span>Meridian AI</span>
+                    </div>
+                    <p>Marketing intelligence that actually works.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Product</h4>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#pricing">Pricing</a>
+                        <a href="#">API Docs</a>
+                    </div>
+                    <div>
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    <div>
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Security</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Meridian AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

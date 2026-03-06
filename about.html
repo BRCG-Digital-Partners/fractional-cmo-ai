@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Meridian AI | The Fractional CMO Problem</title>
+    <meta name="description" content="Why fractional CMOs never complete audits and how AI solves the firefighting problem.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        .story-section { padding: var(--space-3xl) 0; }
+        .story-card { background: white; border-radius: var(--radius-xl); padding: var(--space-2xl); margin-bottom: var(--space-2xl); box-shadow: var(--shadow-md); }
+        .story-title { font-size: var(--text-3xl); font-weight: 800; margin-bottom: var(--space-xl); }
+        .story-quote { font-size: var(--text-xl); color: var(--gray-600); font-style: italic; margin: var(--space-xl) 0; padding-left: var(--space-xl); border-left: 4px solid var(--primary-500); }
+        .timeline { position: relative; padding-left: var(--space-2xl); }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gray-300); }
+        .timeline-item { position: relative; margin-bottom: var(--space-xl); }
+        .timeline-dot { position: absolute; left: -41px; width: 20px; height: 20px; background: var(--error-500); border-radius: 50%; border: 4px solid white; box-shadow: var(--shadow-md); }
+        .timeline-content { background: var(--gray-50); padding: var(--space-lg); border-radius: var(--radius-lg); }
+        .timeline-time { font-weight: 600; color: var(--error-600); margin-bottom: var(--space-xs); }
+        .founder-section { background: var(--gray-50); padding: var(--space-3xl) 0; }
+        .founder-card { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-2xl); background: white; border-radius: var(--radius-xl); padding: var(--space-2xl); box-shadow: var(--shadow-md); }
+        .founder-image { width: 200px; height: 200px; background: var(--gray-200); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--gray-500); }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-top: var(--space-2xl); }
+        .pain-card { background: white; padding: var(--space-xl); border-radius: var(--radius-lg); border: 2px solid var(--error-200); }
+        .pain-icon { font-size: var(--text-3xl); margin-bottom: var(--space-md); }
+        .pain-title { font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-sm); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="nav-logo" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                </svg>
+                <span class="nav-name">Meridian</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="problem.html" class="nav-link">The Problem</a>
+                <a href="solution.html" class="nav-link">Solution</a>
+                <button class="btn btn-primary btn-sm">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: auto; padding: 120px 0 80px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    The Audit That<br>
+                    <span class="hero-gradient">Never Gets Done</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Why fractional CMOs fail to deliver strategic value — and how AI changes everything
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Real Problem -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-card">
+                <h2 class="story-title">Every Fractional CMO's Nightmare</h2>
+                
+                <p style="font-size: var(--text-lg); line-height: 1.8; margin-bottom: var(--space-lg);">
+                    You hire a fractional CMO for $15,000/month. They promise a comprehensive audit and strategic roadmap. 
+                    Week one, they're excited, gathering data, interviewing stakeholders. Then reality hits.
+                </p>
+
+                <div class="story-quote">
+                    "I was hired to transform their marketing strategy. Six months later, I was still fighting daily fires 
+                    and hadn't completed the audit I promised in week one." — Every fractional CMO, ever
+                </div>
+
+                <h3 style="font-size: var(--text-2xl); font-weight: 700; margin: var(--space-2xl) 0 var(--space-xl);">
+                    The Firefighting Timeline
+                </h3>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">Week 1</div>
+                            <strong>Campaign Emergency</strong>
+                            <p>Major campaign launching next week. Drop everything to fix messaging, targeting, and creative.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">Week 2</div>
+                            <strong>Website Crisis</strong>
+                            <p>Conversion rates tanking. Urgent A/B tests needed. Audit postponed.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">Week 3</div>
+                            <strong>Sales Team Revolt</strong>
+                            <p>Lead quality complaints. Emergency meeting. New scoring system needed yesterday.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">Week 4</div>
+                            <strong>Board Presentation</strong>
+                            <p>CEO needs marketing metrics for board meeting. Three days to build dashboards from scratch.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: var(--gray-400);"></div>
+                        <div class="timeline-content" style="opacity: 0.7;">
+                            <div class="timeline-time" style="color: var(--gray-600);">Month 6</div>
+                            <strong>Still No Audit</strong>
+                            <p>That comprehensive audit and strategy? Still sitting at 20% complete.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pain Points -->
+            <div class="story-card">
+                <h2 class="story-title">The Fractional CMO Paradox</h2>
+                
+                <div class="pain-grid">
+                    <div class="pain-card">
+                        <div class="pain-icon">⏰</div>
+                        <div class="pain-title">Never Enough Time</div>
+                        <p>Part-time hours, full-time emergencies. Strategic work always loses to urgent tasks.</p>
+                    </div>
+                    <div class="pain-card">
+                        <div class="pain-icon">🎯</div>
+                        <div class="pain-title">No Clear Priorities</div>
+                        <p>Without a complete audit, you're guessing what to fix first. Usually wrong.</p>
+                    </div>
+                    <div class="pain-card">
+                        <div class="pain-icon">💸</div>
+                        <div class="pain-title">Expensive Guesswork</div>
+                        <p>$180K/year to react to symptoms instead of addressing root causes.</p>
+                    </div>
+                    <div class="pain-card">
+                        <div class="pain-icon">📊</div>
+                        <div class="pain-title">Incomplete Data</div>
+                        <p>Manual analysis takes weeks. By the time it's done, the data is stale.</p>
+                    </div>
+                    <div class="pain-card">
+                        <div class="pain-icon">🔥</div>
+                        <div class="pain-title">Constant Context Switching</div>
+                        <p>Jump from SEO to ads to email to analytics. Nothing gets deep attention.</p>
+                    </div>
+                    <div class="pain-card">
+                        <div class="pain-icon">😤</div>
+                        <div class="pain-title">Stakeholder Frustration</div>
+                        <p>"Where's the strategy we're paying for?" becomes a weekly question.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Alex Section -->
+    <section class="founder-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: var(--text-4xl); font-weight: 800; margin-bottom: var(--space-3xl);">
+                The Vision Behind Meridian
+            </h2>
+            
+            <div class="founder-card">
+                <div>
+                    <div class="founder-image">
+                        <span style="font-size: var(--text-5xl);">👤</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-md);">
+                        Alex Ortiz
+                    </h3>
+                    <p style="color: var(--primary-600); font-weight: 600; margin-bottom: var(--space-lg);">
+                        Founder, Bright Growth | Former CMO at Sendoso, tray.io
+                    </p>
+                    
+                    <p style="font-size: var(--text-lg); line-height: 1.8; margin-bottom: var(--space-lg);">
+                        With over 20 years building hyper-growth B2B SaaS organizations, Alex has lived the fractional CMO paradox firsthand. 
+                        After serving as CMO at companies like Sendoso and VP Marketing at tray.io, he founded Bright Growth to provide 
+                        fractional CMO services.
+                    </p>
+
+                    <div class="story-quote" style="margin: var(--space-lg) 0;">
+                        "I realized every fractional CMO follows the same manual checklist. We all ask the same questions, 
+                        analyze the same metrics, and worst of all — we all get derailed by the same emergencies before 
+                        completing the strategic work we were hired to do."
+                    </div>
+
+                    <p style="font-size: var(--text-lg); line-height: 1.8; margin-bottom: var(--space-lg);">
+                        That's when the idea hit: What if AI could complete the entire audit instantly? What if it could monitor 
+                        everything 24/7 and surface only what matters? What if fractional CMOs could finally focus on strategy 
+                        instead of firefighting?
+                    </p>
+
+                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-xl);">
+                        <div style="background: var(--gray-100); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);">
+                            <strong>20+ years</strong> in B2B SaaS
+                        </div>
+                        <div style="background: var(--gray-100); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);">
+                            <strong>5 exits</strong> as CMO
+                        </div>
+                        <div style="background: var(--gray-100); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);">
+                            <strong>$2B+</strong> in valuations
+                        </div>
+                        <div style="background: var(--gray-100); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);">
+                            <strong>60+ clients</strong> served
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Solution Preview -->
+            <div class="story-card" style="margin-top: var(--space-2xl); text-align: center;">
+                <h3 style="font-size: var(--text-3xl); font-weight: 800; margin-bottom: var(--space-lg);">
+                    Meridian AI: The Audit That Never Sleeps
+                </h3>
+                <p style="font-size: var(--text-xl); color: var(--gray-600); margin-bottom: var(--space-2xl);">
+                    Complete audit in 2 hours. Continuous monitoring. Automatic fixes. 
+                    <br>Finally, fractional CMOs can do what they were hired for: <strong>strategy</strong>.
+                </p>
+                <div style="display: flex; gap: var(--space-lg); justify-content: center;">
+                    <a href="solution.html" class="btn btn-primary btn-lg">See How It Works</a>
+                    <a href="index.html#demo" class="btn btn-secondary btn-lg">Try Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                        </svg>
+                        <span>Meridian AI</span>
+                    </div>
+                    <p>Marketing intelligence that actually works.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Product</h4>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#pricing">Pricing</a>
+                        <a href="#">API Docs</a>
+                    </div>
+                    <div>
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    <div>
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Security</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Meridian AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

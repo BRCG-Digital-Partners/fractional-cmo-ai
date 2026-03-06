@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fractional CMO Problem | Why Marketing Audits Fail</title>
+    <meta name="description" content="The hidden truth about fractional CMOs: why they cost $180K/year and still can't complete basic audits.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .problem-hero { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); padding: 120px 0 80px; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-xl); margin: var(--space-3xl) 0; }
+        .stat-card { background: white; padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-md); }
+        .stat-number { font-size: var(--text-5xl); font-weight: 800; color: var(--error-600); }
+        .stat-label { font-size: var(--text-lg); color: var(--gray-700); margin-top: var(--space-sm); }
+        .comparison-table { width: 100%; margin: var(--space-2xl) 0; border-collapse: collapse; }
+        .comparison-table th { background: var(--gray-100); padding: var(--space-md); text-align: left; font-weight: 700; }
+        .comparison-table td { padding: var(--space-md); border-bottom: 1px solid var(--gray-200); }
+        .comparison-table tr:hover { background: var(--gray-50); }
+        .day-timeline { background: white; border-radius: var(--radius-xl); padding: var(--space-2xl); box-shadow: var(--shadow-lg); margin: var(--space-2xl) 0; }
+        .hour-block { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-md); padding: var(--space-md) 0; border-bottom: 1px solid var(--gray-200); }
+        .hour-block:last-child { border-bottom: none; }
+        .hour-time { font-weight: 700; color: var(--gray-600); }
+        .hour-task { padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); }
+        .task-urgent { background: var(--error-100); color: var(--error-700); }
+        .task-planned { background: var(--primary-100); color: var(--primary-700); opacity: 0.5; text-decoration: line-through; }
+        .cost-breakdown { background: var(--gray-900); color: white; padding: var(--space-3xl); border-radius: var(--radius-xl); margin: var(--space-2xl) 0; }
+        .cost-item { display: flex; justify-content: space-between; padding: var(--space-md) 0; border-bottom: 1px solid var(--gray-700); }
+        .cost-total { font-size: var(--text-2xl); font-weight: 800; color: var(--warning-400); margin-top: var(--space-lg); }
+        .quote-card { background: var(--gray-50); padding: var(--space-2xl); border-radius: var(--radius-lg); margin: var(--space-xl) 0; border-left: 4px solid var(--primary-500); }
+        .quote-text { font-size: var(--text-xl); font-style: italic; color: var(--gray-700); margin-bottom: var(--space-md); }
+        .quote-author { font-weight: 600; color: var(--gray-900); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="nav-logo" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                </svg>
+                <span class="nav-name">Meridian</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="problem.html" class="nav-link">The Problem</a>
+                <a href="solution.html" class="nav-link">Solution</a>
+                <button class="btn btn-primary btn-sm">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Problem Hero -->
+    <section class="problem-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" style="color: var(--error-700);">
+                    The $180,000<br>
+                    <span style="color: var(--error-600);">Firefighter</span>
+                </h1>
+                <p class="hero-subtitle" style="color: var(--error-700);">
+                    Why fractional CMOs become the world's most expensive emergency responders
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Numbers Don't Lie -->
+    <section class="features" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">The Brutal Truth in Numbers</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">73%</div>
+                    <div class="stat-label">Never complete initial audit</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.2</div>
+                    <div class="stat-label">Months to see strategic impact</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$15K</div>
+                    <div class="stat-label">Monthly retainer average</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">82%</div>
+                    <div class="stat-label">Time on urgent tasks</div>
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <p class="quote-text">
+                    "We hired three different fractional CMOs over two years. Each promised a comprehensive audit and strategy. 
+                    We spent $400,000 and never got past firefighting mode."
+                </p>
+                <p class="quote-author">— CEO, Series B SaaS Company</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Day in the Life -->
+    <section class="features" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">A Day in the Life of Your $15K/Month CMO</h2>
+            <p class="section-subtitle">See where your money actually goes</p>
+            
+            <div class="day-timeline">
+                <h3 style="font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-xl);">
+                    Tuesday, March 5th — Typical "Strategy Day"
+                </h3>
+                
+                <div class="hour-block">
+                    <div class="hour-time">9:00 AM</div>
+                    <div>
+                        <div class="hour-task task-planned">Start comprehensive SEO audit</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">9:15 AM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 URGENT: Campaign performance tanking - emergency meeting</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">10:30 AM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 Fix targeting parameters, rewrite ad copy</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">11:00 AM</div>
+                    <div>
+                        <div class="hour-task task-planned">Review competitive landscape</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">11:05 AM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 Sales team escalation - lead quality issues</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">12:00 PM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 Emergency lead scoring adjustment</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">1:00 PM</div>
+                    <div>
+                        <div class="hour-task task-planned">Content audit meeting</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">1:30 PM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 CEO needs metrics for investor meeting tomorrow</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">3:00 PM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 Build emergency dashboard</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">5:00 PM</div>
+                    <div>
+                        <div class="hour-task task-urgent">🔥 Website down - coordinate with dev team</div>
+                    </div>
+                </div>
+                
+                <div class="hour-block">
+                    <div class="hour-time">6:00 PM</div>
+                    <div>
+                        <div class="hour-task task-planned">Finally start that audit... tomorrow</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--space-2xl);">
+                <p style="font-size: var(--text-xl); color: var(--error-600); font-weight: 700;">
+                    Strategic work completed: 0 hours
+                </p>
+                <p style="font-size: var(--text-lg); color: var(--gray-600);">
+                    Cost to company: $682 (daily rate)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Real Cost -->
+    <section class="features" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">The True Cost of Fractional Failure</h2>
+            
+            <div class="cost-breakdown">
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-xl);">Annual Fractional CMO Costs</h3>
+                
+                <div class="cost-item">
+                    <span>Monthly Retainer</span>
+                    <span>$15,000</span>
+                </div>
+                <div class="cost-item">
+                    <span>Annual Retainer (12 months)</span>
+                    <span>$180,000</span>
+                </div>
+                <div class="cost-item">
+                    <span>Incomplete Audit Rework</span>
+                    <span>$25,000</span>
+                </div>
+                <div class="cost-item">
+                    <span>Missed Opportunities (est.)</span>
+                    <span>$300,000</span>
+                </div>
+                <div class="cost-item">
+                    <span>Team Productivity Loss</span>
+                    <span>$75,000</span>
+                </div>
+                
+                <div class="cost-total">
+                    <span>Total Cost of Fractional Chaos</span>
+                    <span>$580,000/year</span>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <h3 style="font-size: var(--text-2xl); margin-top: var(--space-3xl); margin-bottom: var(--space-xl);">
+                What You Pay For vs. What You Get
+            </h3>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>What You're Promised</th>
+                        <th>What Actually Happens</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comprehensive marketing audit</td>
+                        <td>20% completed after 6 months</td>
+                        <td>Flying blind on strategy</td>
+                    </tr>
+                    <tr>
+                        <td>Strategic roadmap & priorities</td>
+                        <td>Constantly shifting based on fires</td>
+                        <td>No clear direction</td>
+                    </tr>
+                    <tr>
+                        <td>Team mentoring & upskilling</td>
+                        <td>Too busy fighting fires</td>
+                        <td>Team remains dependent</td>
+                    </tr>
+                    <tr>
+                        <td>Process optimization</td>
+                        <td>Band-aid solutions only</td>
+                        <td>Problems compound</td>
+                    </tr>
+                    <tr>
+                        <td>Data-driven decisions</td>
+                        <td>Gut reactions to emergencies</td>
+                        <td>Wasted budget</td>
+                    </tr>
+                    <tr>
+                        <td>Competitive advantage</td>
+                        <td>Always playing catch-up</td>
+                        <td>Market share loss</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Why This Happens -->
+    <section class="features" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Why Even Great CMOs Fail as Fractionals</h2>
+            <p class="section-subtitle">It's not incompetence — it's the model itself</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Part-Time Presence</h3>
+                    <p>Problems don't wait for your CMO's scheduled days. By the time they're back, small fires have become infernos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Context Switching Hell</h3>
+                    <p>Managing 3-4 clients means never going deep enough. Surface-level understanding leads to surface-level solutions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Manual Analysis Bottleneck</h3>
+                    <p>A proper audit takes 80-120 hours. At 2 days/week, that's 2-3 months — if nothing interrupts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3>No Early Warning System</h3>
+                    <p>Without continuous monitoring, every problem becomes an emergency by the time it's discovered.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>The Urgency Trap</div>
+                    <p>Urgent always beats important. Strategic work requires deep focus — impossible when everything's on fire.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">😤</div>
+                    <h3>Stakeholder Pressure</h3>
+                    <p>"We're paying $15K/month!" creates pressure for immediate visible action, not invisible strategy work.</p>
+                </div>
+            </div>
+
+            <div class="quote-card" style="margin-top: var(--space-3xl);">
+                <p class="quote-text">
+                    "The irony is painful. Companies hire fractional CMOs because they can't afford full-time strategic leadership. 
+                    But the fractional model ensures they'll never get strategic leadership — just expensive firefighting."
+                </p>
+                <p class="quote-author">— Alex Ortiz, Founder of Bright Growth</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution Teaser -->
+    <section class="section-cta">
+        <div class="container">
+            <h2>There's a Better Way</h2>
+            <p style="font-size: var(--text-xl); margin-bottom: var(--space-2xl);">
+                What if you could get a complete audit in 2 hours instead of 3 months?<br>
+                What if AI could monitor everything 24/7 and only surface what matters?<br>
+                What if your CMO could finally focus on strategy?
+            </p>
+            <a href="solution.html" class="btn btn-primary btn-lg">See the Solution</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                        </svg>
+                        <span>Meridian AI</span>
+                    </div>
+                    <p>Marketing intelligence that actually works.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Product</h4>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#pricing">Pricing</a>
+                        <a href="#">API Docs</a>
+                    </div>
+                    <div>
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    <div>
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Security</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Meridian AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
