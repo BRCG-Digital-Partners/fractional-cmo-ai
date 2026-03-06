@@ -1,0 +1,438 @@
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+    /* Navigation Mobile Menu */
+    .nav {
+        padding: 0;
+    }
+    
+    .nav-container {
+        padding: 0 var(--space-md);
+        height: 60px;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--gray-200);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-link {
+        padding: var(--space-md) var(--space-lg);
+        border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        padding: var(--space-sm);
+        cursor: pointer;
+    }
+    
+    /* Hero Mobile */
+    .hero {
+        padding: 80px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: clamp(var(--text-3xl), 10vw, var(--text-4xl));
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--text-lg);
+        padding: 0 var(--space-md);
+    }
+    
+    .demo-input-wrapper {
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding: var(--space-sm);
+    }
+    
+    .demo-input {
+        width: 100%;
+        font-size: var(--text-base);
+        padding: var(--space-md);
+    }
+    
+    .hero-logos {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+    
+    /* Demo Modal Mobile */
+    .demo-card {
+        margin: var(--space-md);
+        max-height: calc(100vh - 2rem);
+    }
+    
+    .demo-header {
+        padding: var(--space-lg);
+    }
+    
+    .demo-header h2 {
+        font-size: var(--text-xl);
+    }
+    
+    .analysis-progress {
+        padding: var(--space-lg);
+    }
+    
+    .progress-step {
+        gap: var(--space-sm);
+    }
+    
+    .step-icon {
+        width: 36px;
+        height: 36px;
+        font-size: var(--text-base);
+    }
+    
+    .step-title {
+        font-size: var(--text-base);
+    }
+    
+    .step-detail {
+        font-size: var(--text-xs);
+    }
+    
+    /* Results Mobile */
+    .analysis-results {
+        padding: var(--space-lg);
+    }
+    
+    .results-header {
+        flex-direction: column;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+    
+    .findings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .finding-card {
+        padding: var(--space-lg);
+    }
+    
+    /* Features Mobile */
+    .section-header {
+        margin-bottom: var(--space-2xl);
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl);
+        line-height: 1.2;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .section-subtitle {
+        font-size: var(--text-lg);
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .feature-main {
+        grid-column: span 1;
+    }
+    
+    .feature-visual {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .feature-card {
+        padding: var(--space-lg);
+    }
+    
+    .feature-icon {
+        font-size: var(--text-2xl);
+    }
+    
+    .feature-card h3 {
+        font-size: var(--text-lg);
+    }
+    
+    /* Process Mobile */
+    .steps-container {
+        gap: var(--space-xl);
+    }
+    
+    .step-number-lg {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-2xl);
+    }
+    
+    .step h3 {
+        font-size: var(--text-lg);
+    }
+    
+    .step p {
+        font-size: var(--text-sm);
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg);
+        margin: var(--space-md) 0;
+    }
+    
+    /* Pricing Mobile */
+    .pricing-cards {
+        gap: var(--space-lg);
+    }
+    
+    .pricing-card {
+        padding: var(--space-xl);
+    }
+    
+    .pricing-featured {
+        transform: scale(1);
+    }
+    
+    .price-number {
+        font-size: var(--text-4xl);
+    }
+    
+    /* Agents Mobile */
+    .agents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer Mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+    }
+    
+    /* About Page Mobile */
+    .story-card {
+        padding: var(--space-lg);
+    }
+    
+    .story-title {
+        font-size: var(--text-2xl);
+    }
+    
+    .story-quote {
+        font-size: var(--text-lg);
+        padding-left: var(--space-lg);
+        margin: var(--space-lg) 0;
+    }
+    
+    .timeline {
+        padding-left: var(--space-lg);
+    }
+    
+    .timeline-content {
+        padding: var(--space-md);
+    }
+    
+    .founder-card {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .founder-image {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .pain-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Problem Page Mobile */
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    
+    .stat-number {
+        font-size: var(--text-3xl);
+    }
+    
+    .day-timeline {
+        padding: var(--space-lg);
+    }
+    
+    .hour-block {
+        grid-template-columns: 80px 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .hour-time {
+        font-size: var(--text-sm);
+    }
+    
+    .hour-task {
+        font-size: var(--text-sm);
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .cost-breakdown {
+        padding: var(--space-xl);
+    }
+    
+    .comparison-table {
+        font-size: var(--text-sm);
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--space-sm);
+    }
+    
+    /* Solution Page Mobile */
+    .before-after {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .process-visual {
+        padding: var(--space-xl);
+    }
+    
+    .process-flow {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .process-node {
+        text-align: center;
+    }
+    
+    .process-icon {
+        width: 80px;
+        height: 80px;
+        font-size: var(--text-3xl);
+    }
+    
+    .process-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .feature-comparison {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    
+    .fc-metric {
+        font-size: var(--text-3xl);
+    }
+    
+    .agent-showcase {
+        padding: var(--space-xl);
+    }
+    
+    .monitoring-demo {
+        padding: var(--space-lg);
+    }
+    
+    .alert-item {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: flex-start;
+    }
+    
+    /* Buttons Mobile */
+    .btn {
+        font-size: var(--text-base);
+    }
+    
+    .btn-lg {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    /* Utility Classes Mobile */
+    .container {
+        padding: 0 var(--space-md);
+    }
+    
+    section {
+        padding: var(--space-2xl) 0;
+    }
+    
+    .section-cta {
+        padding: var(--space-3xl) 0;
+    }
+    
+    /* Typography Mobile */
+    h1 {
+        font-size: var(--text-3xl);
+    }
+    
+    h2 {
+        font-size: var(--text-2xl);
+    }
+    
+    h3 {
+        font-size: var(--text-xl);
+    }
+    
+    p {
+        font-size: var(--text-base);
+    }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: var(--text-3xl);
+    }
+    
+    .process-icon {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-2xl);
+    }
+}

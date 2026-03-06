@@ -6,6 +6,7 @@
     <title>About Meridian AI | The Fractional CMO Problem</title>
     <meta name="description" content="Why fractional CMOs never complete audits and how AI solves the firefighting problem.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -30,7 +31,7 @@
         .pain-title { font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-sm); }
     </style>
 </head>
-<body>
+<body x-data="{ mobileMenuOpen: false }">
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -42,13 +43,19 @@
                 </svg>
                 <span class="nav-name">Meridian</span>
             </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="problem.html" class="nav-link">The Problem</a>
-                <a href="solution.html" class="nav-link">Solution</a>
+            <div class="nav-menu" :class="{ active: mobileMenuOpen }">
+                <a href="index.html" class="nav-link" @click="mobileMenuOpen = false">Home</a>
+                <a href="about.html" class="nav-link" @click="mobileMenuOpen = false">About</a>
+                <a href="problem.html" class="nav-link" @click="mobileMenuOpen = false">The Problem</a>
+                <a href="solution.html" class="nav-link" @click="mobileMenuOpen = false">Solution</a>
                 <button class="btn btn-primary btn-sm">Get Started</button>
             </div>
+            <button class="mobile-menu-toggle" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path x-show="!mobileMenuOpen" d="M3 12h18M3 6h18M3 18h18"/>
+                    <path x-show="mobileMenuOpen" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
