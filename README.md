@@ -1,55 +1,155 @@
-# Fractional CMO AI
+# Meridian AI - Marketing Intelligence Platform
 
-An AI-powered fractional CMO service that automates comprehensive marketing audits and deploys AI agents to fix identified issues.
+AI-powered marketing intelligence that discovers, analyzes, and optimizes your entire digital presence in real-time.
 
-## Concept
+## 🚀 Live Demo
 
-Traditional fractional CMO services are expensive ($10K-$20K/month) and time-consuming (2-4 week audits). This platform productizes the fractional CMO model by:
+https://fractional-cmo-ai.vercel.app
 
-1. **AI-Powered Audits**: Comprehensive 150-point marketing audits completed in hours, not weeks
-2. **Automated Discovery**: AI agents analyze analytics, ad accounts, CRM data, content, and competitors
-3. **Smart Diagnosis**: Pattern recognition identifies gaps and opportunities across all channels
-4. **Automated Fixes**: Deploy specialized AI agents to implement recommendations
+## 🎯 What is Meridian AI?
 
-## Key Features
+Meridian AI transforms the traditional fractional CMO model by automating comprehensive marketing audits and deploying AI agents to fix identified issues automatically.
 
-- **8 Marketing Domains**: Strategy, Digital Presence, Paid Acquisition, Lifecycle Marketing, Analytics, Product Marketing, Sales Alignment, MarTech Stack
-- **150+ Checkpoints**: Comprehensive analysis across all marketing functions
-- **Specialized AI Agents**: Strategy, Content, PPC, Email, SEO, and Analytics agents
-- **Real-Time Dashboards**: Track audit progress and improvements
-- **48-Hour Turnaround**: From connection to actionable insights
+### The Problem
+- Traditional fractional CMOs cost $10K-$20K/month
+- Manual audits take 2-4 weeks
+- Limited by human bandwidth
+- Inconsistent depth of analysis
 
-## Technology Stack
+### Our Solution
+- AI-powered analysis in minutes, not weeks
+- 150+ checkpoint comprehensive audits
+- Automated fixes via specialized AI agents
+- 80% cost reduction vs traditional services
 
-- Frontend: HTML, CSS, JavaScript
-- Hosting: Vercel
-- AI Framework: Multi-agent system with specialized marketing expertise
+## ✨ Features
 
-## Business Model
+### 1. Instant Discovery
+Enter any URL and our AI discovers:
+- All digital properties
+- Social media presence
+- Competitor landscape
+- Content ecosystem
+- Technical infrastructure
 
-- **Audit Only**: $2,500 one-time
-- **Audit + Fix**: $5,000/month (includes AI agent deployment)
-- **Enterprise**: Custom pricing with white-label options
+### 2. Deep Analysis
+150+ checkpoints across 8 marketing domains:
+- **SEO & Content** - Technical SEO, content quality, keyword opportunities
+- **Performance** - Site speed, Core Web Vitals, mobile optimization
+- **Paid Advertising** - Campaign detection, pixel tracking, competitor spend
+- **Email Marketing** - List building, automation flows, deliverability
+- **Social Media** - Platform presence, engagement rates, content strategy
+- **Analytics** - Tracking setup, conversion goals, attribution
+- **Brand & Messaging** - Consistency, positioning, voice
+- **Sales Alignment** - Lead quality, funnel optimization, enablement
 
-## Deployment
+### 3. AI Agent Deployment
+One-click deploy specialized agents:
+- **SEO Optimizer** - Fixes technical issues, creates sitemaps, adds schema
+- **Content Creator** - Generates optimized content, updates stale pages
+- **Speed Optimizer** - Compresses assets, implements caching, lazy loading
+- **PPC Manager** - Creates campaigns, optimizes bids, tracks conversions
+- **Email Automator** - Sets up flows, segments lists, A/B tests
+- **Social Manager** - Schedules posts, engages audience, tracks metrics
+
+## 🛠️ Technology Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript (Alpine.js)
+- **Design System**: Custom CSS with modern UI patterns
+- **Analysis Engine**: JavaScript-based marketing analyzer
+- **API**: Express.js with real website analysis capabilities
+- **Hosting**: Vercel
+
+## 💻 Development
 
 ```bash
-# Install Vercel CLI
-npm i -g vercel
+# Clone the repository
+git clone https://github.com/BRCG-Digital-Partners/fractional-cmo-ai.git
+cd fractional-cmo-ai
 
-# Deploy to Vercel
-vercel
+# Install dependencies (for API server)
+npm install
 
-# Deploy to production
-vercel --prod
-```
-
-## Development
-
-```bash
-# Run local development server
+# Run development server
 npm run dev
 
 # Open in browser
-open http://localhost:8000
+open http://localhost:3001
 ```
+
+## 📊 How It Works
+
+1. **Enter URL** - Just paste any website URL
+2. **AI Analysis** - Our agents analyze 150+ checkpoints across all marketing channels
+3. **Get Report** - See scores, issues, and prioritized recommendations
+4. **Deploy Fixes** - One-click deploy AI agents to implement solutions
+
+## 💰 Pricing Model
+
+- **Preview** - $0 (25-point analysis)
+- **Professional** - $497/month (Full analysis + AI agents)
+- **Enterprise** - Custom (White-label, custom agents, SLA)
+
+## 🎨 Design Philosophy
+
+Meridian AI features a modern, clean design with:
+- Glass morphism effects
+- Smooth micro-animations
+- Mobile-first responsive layout
+- Dark mode ready architecture
+- Accessible color contrast
+- Performance optimized assets
+
+## 🤖 AI Agent Capabilities
+
+Each AI agent is specialized for specific marketing tasks:
+
+### SEO Agent
+- Generates and submits sitemaps
+- Creates robots.txt files
+- Implements schema markup
+- Fixes meta tags and descriptions
+- Optimizes page titles and headers
+
+### Content Agent
+- Analyzes content gaps
+- Generates SEO-optimized articles
+- Updates stale content
+- Creates content calendars
+- Implements internal linking
+
+### Performance Agent
+- Compresses images automatically
+- Minifies CSS/JavaScript
+- Implements browser caching
+- Enables lazy loading
+- Optimizes server response
+
+## 🔐 Security & Privacy
+
+- No sensitive data stored
+- SSL encrypted connections
+- GDPR compliant
+- SOC2 ready architecture
+- Regular security audits
+
+## 🚦 Roadmap
+
+- [ ] Chrome extension for instant analysis
+- [ ] Slack/Teams integration
+- [ ] Custom reporting dashboards
+- [ ] API for developers
+- [ ] White-label solution
+- [ ] Mobile app
+
+## 📝 License
+
+MIT License - see LICENSE file for details
+
+## 🤝 About
+
+Created by BRCG Digital Partners as a demonstration of how AI can transform traditional consulting services into scalable, automated solutions.
+
+---
+
+**Ready to transform your marketing?** Visit [Meridian AI](https://fractional-cmo-ai.vercel.app) and start your free analysis today.
