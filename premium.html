@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian | Executive Marketing Intelligence for Founders</title>
+    <meta name="description" content="Transform your marketing from cost center to growth engine. Executive-level intelligence platform trusted by venture-backed founders.">
+    <link rel="stylesheet" href="premium-styles.css">
+    <link rel="stylesheet" href="mobile-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
+    <!-- Premium Navigation -->
+    <nav class="premium-nav" :class="{ 'scrolled': scrolled }">
+        <div class="premium-nav-container">
+            <div class="premium-logo">
+                <div class="premium-logo-mark">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M16 8V16L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="2" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="premium-logo-text">Meridian</div>
+            </div>
+            <div class="premium-nav-menu">
+                <a href="#intelligence" class="premium-nav-link">Intelligence</a>
+                <a href="#roi" class="premium-nav-link">ROI</a>
+                <a href="#founders" class="premium-nav-link">Founders</a>
+                <button class="premium-btn premium-btn-primary">
+                    <span>Request Access</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Hero -->
+    <section class="premium-hero">
+        <div class="premium-hero-bg"></div>
+        <div class="container">
+            <div class="premium-hero-content">
+                <div class="premium-hero-badge">For Ambitious Founders</div>
+                <h1 class="premium-hero-title">
+                    Your CMO Is<br>
+                    <span class="premium-hero-gradient">Fighting Fires</span><br>
+                    Not Building Value
+                </h1>
+                <p class="premium-hero-subtitle">
+                    While you're paying $180K+ for strategic leadership, they're drowning in operational chaos. 
+                    Meridian gives you the intelligence to transform marketing from a cost center into your growth engine.
+                </p>
+                <div class="premium-hero-actions">
+                    <button class="premium-btn premium-btn-gold">
+                        <span>See Your Marketing Score</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="premium-btn premium-btn-secondary">
+                        <span>Executive Brief</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section style="background: white; padding: var(--space-2xl) 0; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--space-xl);">
+                <p style="color: var(--slate); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">
+                    Trusted by Founders at
+                </p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: var(--space-3xl); align-items: center; opacity: 0.4;">
+                <div style="font-weight: 600; font-size: 20px;">YC '23</div>
+                <div style="font-weight: 600; font-size: 20px;">Sequoia</div>
+                <div style="font-weight: 600; font-size: 20px;">a16z</div>
+                <div style="font-weight: 600; font-size: 20px;">Founders Fund</div>
+                <div style="font-weight: 600; font-size: 20px;">Index</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem (Founder-focused) -->
+    <section style="padding: var(--space-4xl) 0; background: var(--marble);">
+        <div class="container" style="max-width: 1000px;">
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h2 style="font-family: var(--font-display); font-size: 56px; font-weight: 700; margin-bottom: var(--space-lg);">
+                    The $2M Marketing Problem
+                </h2>
+                <p style="font-size: 24px; color: var(--slate-dark);">
+                    You hired a CMO to drive growth. Instead, you got an expensive firefighter.
+                </p>
+            </div>
+
+            <div class="premium-stats">
+                <div class="premium-stat">
+                    <div class="premium-stat-number">73%</div>
+                    <div class="premium-stat-label">Never Complete Audits</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="premium-stat-number">82%</div>
+                    <div class="premium-stat-label">Time on Urgent Tasks</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="premium-stat-number">$2M</div>
+                    <div class="premium-stat-label">Annual Opportunity Cost</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="premium-stat-number">6mo</div>
+                    <div class="premium-stat-label">To See ROI</div>
+                </div>
+            </div>
+
+            <div style="background: white; padding: var(--space-2xl); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.06); margin-top: var(--space-3xl);">
+                <div style="display: flex; align-items: flex-start; gap: var(--space-lg);">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-gold); display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                            👤
+                        </div>
+                    </div>
+                    <div>
+                        <blockquote style="font-size: 20px; line-height: 1.6; color: var(--slate-dark); margin-bottom: var(--space-md); font-style: italic;">
+                            "We spent $400K on fractional CMOs over two years. Never got past firefighting mode. 
+                            Our competitors who started after us already exited."
+                        </blockquote>
+                        <p style="font-weight: 600;">— Series B SaaS Founder, $50M ARR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intelligence Platform -->
+    <section id="intelligence" style="padding: var(--space-4xl) 0; background: white;">
+        <div class="container" style="max-width: 1200px;">
+            <div class="premium-feature">
+                <div class="premium-feature-content">
+                    <div class="premium-feature-badge">Executive Intelligence</div>
+                    <h3>Complete Market Intelligence in 2 Hours</h3>
+                    <p>
+                        While your CMO is handling today's crisis, Meridian completes a comprehensive 
+                        150-point audit across your entire marketing ecosystem. Know exactly where 
+                        you're losing money and missing growth.
+                    </p>
+                    <ul style="list-style: none; margin: var(--space-xl) 0;">
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                            <span style="color: var(--gold); font-size: 20px;">✓</span>
+                            <span>Competitor intelligence & market positioning</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                            <span style="color: var(--gold); font-size: 20px;">✓</span>
+                            <span>Channel efficiency & CAC optimization paths</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                            <span style="color: var(--gold); font-size: 20px;">✓</span>
+                            <span>Growth bottlenecks & scaling opportunities</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                            <span style="color: var(--gold); font-size: 20px;">✓</span>
+                            <span>Tech stack efficiency & integration gaps</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="premium-feature-visual">
+                    <div style="background: var(--ink); color: white; padding: var(--space-lg); border-radius: 12px; font-family: var(--font-mono); font-size: 14px; line-height: 1.6;">
+                        <div style="margin-bottom: var(--space-md);">
+                            <span style="color: var(--gold);">&gt;</span> Analyzing marketing.example.com
+                        </div>
+                        <div style="margin-bottom: var(--space-sm); opacity: 0.7;">
+                            ✓ Discovered 47 digital properties
+                        </div>
+                        <div style="margin-bottom: var(--space-sm); opacity: 0.7;">
+                            ✓ Analyzed 5 competitor strategies
+                        </div>
+                        <div style="margin-bottom: var(--space-sm); opacity: 0.7;">
+                            ✓ Identified $2.3M in wasted spend
+                        </div>
+                        <div style="margin-bottom: var(--space-sm); opacity: 0.7;">
+                            ✓ Found 23 quick-win optimizations
+                        </div>
+                        <div style="margin-bottom: var(--space-md);">
+                            ✓ Generated strategic roadmap
+                        </div>
+                        <div>
+                            <span style="color: var(--gold);">&gt;</span> Executive report ready.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="premium-feature" style="margin-top: var(--space-4xl);">
+                <div class="premium-feature-content">
+                    <div class="premium-feature-badge">Strategic Automation</div>
+                    <h3>AI Agents Handle the Chaos</h3>
+                    <p>
+                        Stop paying executive rates for operational work. Deploy specialized AI agents 
+                        to handle the routine tasks that consume 80% of your CMO's time. They work 24/7, 
+                        never miss details, and free your leadership for actual strategy.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); margin-top: var(--space-xl);">
+                        <div class="premium-card">
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: var(--space-sm);">Campaign Operations</h4>
+                            <p style="font-size: 16px; color: var(--slate-dark);">A/B testing, bid management, budget optimization, performance tracking</p>
+                        </div>
+                        <div class="premium-card">
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: var(--space-sm);">Technical Marketing</h4>
+                            <p style="font-size: 16px; color: var(--slate-dark);">SEO fixes, tracking implementation, site optimization, schema markup</p>
+                        </div>
+                        <div class="premium-card">
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: var(--space-sm);">Content Production</h4>
+                            <p style="font-size: 16px; color: var(--slate-dark);">Blog posts, email sequences, social content, landing pages</p>
+                        </div>
+                        <div class="premium-card">
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: var(--space-sm);">Analytics & Reporting</h4>
+                            <p style="font-size: 16px; color: var(--slate-dark);">Dashboard creation, KPI tracking, attribution modeling, insights</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-feature-visual">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmYWZhZmEiLz4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkNGFmMzciIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDRhZjM3IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNSIvPgogIDxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI4IiBmaWxsPSIjZDRhZjM3Ii8+CiAgCiAgPCEtLSBBZ2VudCBub2RlcyAtLT4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSI3MCIgcj0iMjAiIGZpbGw9IiMwYTBhMGEiLz4KICA8Y2lyY2xlIGN4PSIyNzAiIGN5PSIxMjAiIHI9IjIwIiBmaWxsPSIjMGEwYTBhIi8+CiAgPGNpcmNsZSBjeD0iMjcwIiBjeT0iMTgwIiByPSIyMCIgZmlsbD0iIzBhMGEwYSIvPgogIDxjaXJjbGUgY3g9IjIwMCIgY3k9IjIzMCIgcj0iMjAiIGZpbGw9IiMwYTBhMGEiLz4KICA8Y2lyY2xlIGN4PSIxMzAiIGN5PSIxODAiIHI9IjIwIiBmaWxsPSIjMGEwYTBhIi8+CiAgPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTIwIiByPSIyMCIgZmlsbD0iIzBhMGEwYSIvPgo8L3N2Zz4=" alt="AI Agent Network" style="width: 100%; height: auto; border-radius: 12px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section id="roi" class="premium-pricing">
+        <div class="container">
+            <div class="premium-pricing-header">
+                <h2>The Executive Decision</h2>
+                <p>Transform marketing from your biggest expense to your growth engine</p>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto var(--space-3xl); background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: var(--space-2xl);">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); text-align: center;">
+                    <div>
+                        <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-sm);">Traditional CMO Cost</p>
+                        <p style="font-family: var(--font-display); font-size: 36px; color: white; font-weight: 700;">$180K<span style="font-size: 18px; opacity: 0.7;">/year</span></p>
+                    </div>
+                    <div>
+                        <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-sm);">With Meridian</p>
+                        <p style="font-family: var(--font-display); font-size: 36px; color: var(--gold); font-weight: 700;">$102K<span style="font-size: 18px; opacity: 0.7;">/year</span></p>
+                    </div>
+                    <div>
+                        <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-sm);">Your Savings</p>
+                        <p style="font-family: var(--font-display); font-size: 36px; color: var(--gold); font-weight: 700;">43%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="premium-pricing-cards">
+                <div class="premium-pricing-card">
+                    <h3 style="font-size: 24px; color: var(--marble); margin-bottom: var(--space-lg);">Pilot</h3>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: var(--space-xl);">Prove the value</p>
+                    <div class="premium-price">
+                        <span class="premium-price-currency">$</span>4,970
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: var(--space-2xl);">One-time audit</p>
+                    <ul style="list-style: none; text-align: left; margin-bottom: var(--space-2xl);">
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Complete 150-point audit</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Competitor intelligence</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Executive presentation</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ 90-day roadmap</li>
+                    </ul>
+                    <button class="premium-btn premium-btn-secondary" style="width: 100%;">
+                        <span>Start Pilot</span>
+                    </button>
+                </div>
+
+                <div class="premium-pricing-card featured">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); padding: 6px 20px; border-radius: 100px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Recommended
+                    </div>
+                    <h3 style="font-size: 24px; color: var(--marble); margin-bottom: var(--space-lg);">Growth</h3>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: var(--space-xl);">Scale intelligently</p>
+                    <div class="premium-price">
+                        <span class="premium-price-currency">$</span>4,970
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: var(--space-2xl);">Per month</p>
+                    <ul style="list-style: none; text-align: left; margin-bottom: var(--space-2xl);">
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Everything in Pilot</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ AI agent deployment</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ 24/7 monitoring</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Weekly optimization</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Executive dashboard</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Strategic advisor access</li>
+                    </ul>
+                    <button class="premium-btn premium-btn-gold" style="width: 100%;">
+                        <span>Request Access</span>
+                    </button>
+                </div>
+
+                <div class="premium-pricing-card">
+                    <h3 style="font-size: 24px; color: var(--marble); margin-bottom: var(--space-lg);">Enterprise</h3>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: var(--space-xl);">Full transformation</p>
+                    <div style="font-size: 36px; color: var(--marble); margin: var(--space-xl) 0;">
+                        Custom
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: var(--space-2xl);">Let's discuss</p>
+                    <ul style="list-style: none; text-align: left; margin-bottom: var(--space-2xl);">
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Everything in Growth</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Custom AI agents</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ Board reporting</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ M&A due diligence</li>
+                        <li style="padding: var(--space-sm) 0; color: rgba(255, 255, 255, 0.8);">✓ White-glove support</li>
+                    </ul>
+                    <button class="premium-btn premium-btn-secondary" style="width: 100%;">
+                        <span>Contact Us</span>
+                    </button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-3xl); color: rgba(255, 255, 255, 0.7);">
+                <p style="font-size: 18px;">All plans include 30-day money-back guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Testimonials -->
+    <section id="founders" style="padding: var(--space-4xl) 0; background: var(--marble);">
+        <div class="container" style="max-width: 1000px;">
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h2 style="font-family: var(--font-display); font-size: 56px; font-weight: 700; margin-bottom: var(--space-lg);">
+                    Founders Who've Made the Switch
+                </h2>
+                <p style="font-size: 24px; color: var(--slate-dark);">
+                    From firefighting to strategic growth in weeks, not years
+                </p>
+            </div>
+
+            <div style="display: grid; gap: var(--space-xl);">
+                <div class="premium-card">
+                    <div style="display: flex; gap: var(--space-xl);">
+                        <div style="flex-shrink: 0;">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">
+                                👨‍💼
+                            </div>
+                        </div>
+                        <div>
+                            <blockquote style="font-size: 20px; line-height: 1.6; color: var(--slate-dark); margin-bottom: var(--space-lg);">
+                                "We cut our marketing spend by 40% while increasing qualified pipeline by 3x. 
+                                Meridian found $2.3M in wasted spend in the first week. Our fractional CMO 
+                                is finally doing what we hired them for: strategy."
+                            </blockquote>
+                            <div>
+                                <p style="font-weight: 700; font-size: 18px;">Michael Chen</p>
+                                <p style="color: var(--slate); font-size: 16px;">Founder & CEO, Series B SaaS • $50M ARR</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div style="display: flex; gap: var(--space-xl);">
+                        <div style="flex-shrink: 0;">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">
+                                👩‍💼
+                            </div>
+                        </div>
+                        <div>
+                            <blockquote style="font-size: 20px; line-height: 1.6; color: var(--slate-dark); margin-bottom: var(--space-lg);">
+                                "The audit revealed we were competing in the wrong category. After repositioning 
+                                based on Meridian's intelligence, we 5x'd inbound leads and raised our Series A 
+                                at 2x the valuation we expected."
+                            </blockquote>
+                            <div>
+                                <p style="font-weight: 700; font-size: 18px;">Sarah Rodriguez</p>
+                                <p style="color: var(--slate); font-size: 16px;">Co-founder, YC W23 • Raised $12M Series A</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div style="display: flex; gap: var(--space-xl);">
+                        <div style="flex-shrink: 0;">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">
+                                👨‍💼
+                            </div>
+                        </div>
+                        <div>
+                            <blockquote style="font-size: 20px; line-height: 1.6; color: var(--slate-dark); margin-bottom: var(--space-lg);">
+                                "My board was pressuring me about marketing efficiency. Meridian's executive 
+                                dashboard gave me everything I needed. CAC down 60%, LTV:CAC up to 4.2:1. 
+                                Best investment we've made."
+                            </blockquote>
+                            <div>
+                                <p style="font-weight: 700; font-size: 18px;">David Park</p>
+                                <p style="color: var(--slate); font-size: 16px;">CEO, Series C Fintech • $100M valuation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="padding: var(--space-4xl) 0; background: var(--ink); position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);"></div>
+        <div class="container" style="max-width: 800px; text-align: center; position: relative; z-index: 1;">
+            <h2 style="font-family: var(--font-display); font-size: 64px; font-weight: 700; color: var(--marble); margin-bottom: var(--space-lg);">
+                Stop Paying for Chaos
+            </h2>
+            <p style="font-size: 24px; color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-2xl);">
+                Get the strategic marketing leadership you actually need.
+                <br>Complete intelligence in 2 hours. Not 6 months.
+            </p>
+            <div style="display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;">
+                <button class="premium-btn premium-btn-gold">
+                    <span>See Your Marketing Score</span>
+                </button>
+                <button class="premium-btn premium-btn-secondary" style="background: transparent; border-color: rgba(255, 255, 255, 0.3); color: white;">
+                    <span>Schedule Executive Brief</span>
+                </button>
+            </div>
+            <p style="margin-top: var(--space-xl); color: rgba(255, 255, 255, 0.5); font-size: 14px;">
+                Join 50+ venture-backed founders • 30-day guarantee • No contracts
+            </p>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
+        <div class="premium-footer-content">
+            <div class="premium-footer-brand">
+                Meridian © 2026
+            </div>
+            <div style="display: flex; gap: var(--space-xl); align-items: center;">
+                <a href="#" style="color: rgba(255, 255, 255, 0.6); transition: color 0.3s;">Terms</a>
+                <a href="#" style="color: rgba(255, 255, 255, 0.6); transition: color 0.3s;">Privacy</a>
+                <a href="#" style="color: rgba(255, 255, 255, 0.6); transition: color 0.3s;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

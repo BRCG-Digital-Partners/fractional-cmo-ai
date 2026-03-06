@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian | Choose Your Experience</title>
+    <link rel="stylesheet" href="premium-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-subtle);
+        }
+        .choose-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+            text-align: center;
+        }
+        .choose-header {
+            margin-bottom: var(--space-3xl);
+        }
+        .choose-title {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: var(--space-lg);
+        }
+        .choose-subtitle {
+            font-size: 24px;
+            color: var(--slate-dark);
+        }
+        .choose-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-xl);
+        }
+        .choose-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: var(--space-2xl);
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        .choose-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        .choose-card-premium {
+            background: var(--ink);
+            color: white;
+        }
+        .choose-card-premium:hover {
+            border-color: var(--gold);
+        }
+        .choose-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--gold);
+            color: var(--ink);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-lg);
+        }
+        .choose-card-title {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+        .choose-card-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+            opacity: 0.8;
+        }
+        .choose-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: var(--space-xl);
+        }
+        .choose-features li {
+            padding: var(--space-sm) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        .choose-features li:before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .choose-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-smooth);
+        }
+        .choose-btn-primary {
+            background: var(--gold);
+            color: var(--ink);
+        }
+        .choose-btn-secondary {
+            background: white;
+            color: var(--ink);
+        }
+    </style>
+</head>
+<body>
+    <div class="choose-container">
+        <div class="choose-header">
+            <h1 class="choose-title">Choose Your Experience</h1>
+            <p class="choose-subtitle">Select the version that best fits your needs</p>
+        </div>
+        
+        <div class="choose-cards">
+            <a href="premium.html" class="choose-card choose-card-premium">
+                <div class="choose-badge">Recommended</div>
+                <h2 class="choose-card-title">Founder Edition</h2>
+                <p class="choose-card-description">
+                    For venture-backed founders and executives who need strategic marketing transformation
+                </p>
+                <ul class="choose-features">
+                    <li>Executive-level intelligence</li>
+                    <li>Board-ready reporting</li>
+                    <li>Strategic advisor access</li>
+                    <li>Premium support</li>
+                    <li>$4,970/month</li>
+                </ul>
+                <div class="choose-btn choose-btn-primary">
+                    <span>Enter Premium Experience</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+            
+            <a href="index.html" class="choose-card">
+                <div style="height: 40px;"></div>
+                <h2 class="choose-card-title">Standard Edition</h2>
+                <p class="choose-card-description">
+                    For marketing teams and smaller companies exploring AI-powered marketing audits
+                </p>
+                <ul class="choose-features">
+                    <li>Full marketing audit</li>
+                    <li>AI agent deployment</li>
+                    <li>Self-service dashboard</li>
+                    <li>Email support</li>
+                    <li>$497/month</li>
+                </ul>
+                <div class="choose-btn choose-btn-secondary">
+                    <span>Enter Standard Experience</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
