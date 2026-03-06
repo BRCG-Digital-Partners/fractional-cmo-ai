@@ -1,0 +1,12 @@
+{
+  "name": "fractional-cmo-ai",
+  "version": "1.0.0",
+  "description": "AI-powered fractional CMO services with automated marketing audits",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["fractional-cmo", "ai", "marketing-audit", "automation"],
+  "author": "BRCG Digital Partners",
+  "license": "MIT"
+}
