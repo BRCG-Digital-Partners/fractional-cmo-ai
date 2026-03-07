@@ -3,8 +3,8 @@
   "version": "2.0.0",
   "description": "AI-powered marketing intelligence platform",
   "scripts": {
-    "dev": "node api-server.js",
-    "start": "node api-server.js",
+    "dev": "node api-server-enhanced.js",
+    "start": "node api-server-enhanced.js",
     "build": "echo 'No build needed for demo'"
   },
   "dependencies": {
