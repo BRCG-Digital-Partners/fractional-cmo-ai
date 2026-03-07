@@ -1,155 +1,167 @@
-# Meridian AI - Marketing Intelligence Platform
+# Alex² - AI-Powered Fractional CMO Platform
 
-AI-powered marketing intelligence that discovers, analyzes, and optimizes your entire digital presence in real-time.
+> Revolutionary AI platform that delivers enterprise-grade marketing leadership at a fraction of the cost.
 
-## 🚀 Live Demo
+## Overview
 
-https://fractional-cmo-ai.vercel.app
+Alex² (Alex Squared) is an AI-powered fractional CMO platform designed to provide startups and growing companies with sophisticated marketing strategy and execution capabilities without the cost of a full-time executive.
 
-## 🎯 What is Meridian AI?
+## Features
 
-Meridian AI transforms the traditional fractional CMO model by automating comprehensive marketing audits and deploying AI agents to fix identified issues automatically.
+### 🎯 Strategic Planning
+- Comprehensive marketing strategies tailored to business goals
+- 3-year roadmaps with quarterly OKRs
+- Market positioning and competitive analysis
 
-### The Problem
-- Traditional fractional CMOs cost $10K-$20K/month
-- Manual audits take 2-4 weeks
-- Limited by human bandwidth
-- Inconsistent depth of analysis
+### 📊 Campaign Execution
+- End-to-end campaign management
+- Multi-channel orchestration
+- A/B testing and optimization
 
-### Our Solution
-- AI-powered analysis in minutes, not weeks
-- 150+ checkpoint comprehensive audits
-- Automated fixes via specialized AI agents
-- 80% cost reduction vs traditional services
+### 🚀 Growth Analytics
+- Real-time performance dashboards
+- Predictive analytics and forecasting
+- ROI tracking and attribution
 
-## ✨ Features
+### 💡 Creative Direction
+- Brand strategy development
+- Content calendar management
+- Creative asset oversight
 
-### 1. Instant Discovery
-Enter any URL and our AI discovers:
-- All digital properties
-- Social media presence
-- Competitor landscape
-- Content ecosystem
-- Technical infrastructure
+### 👥 Team Leadership
+- Vendor and agency coordination
+- Internal team alignment
+- Process optimization
 
-### 2. Deep Analysis
-150+ checkpoints across 8 marketing domains:
-- **SEO & Content** - Technical SEO, content quality, keyword opportunities
-- **Performance** - Site speed, Core Web Vitals, mobile optimization
-- **Paid Advertising** - Campaign detection, pixel tracking, competitor spend
-- **Email Marketing** - List building, automation flows, deliverability
-- **Social Media** - Platform presence, engagement rates, content strategy
-- **Analytics** - Tracking setup, conversion goals, attribution
-- **Brand & Messaging** - Consistency, positioning, voice
-- **Sales Alignment** - Lead quality, funnel optimization, enablement
+### 📈 Board Reporting
+- Executive-ready insights
+- Monthly performance reports
+- Strategic recommendations
 
-### 3. AI Agent Deployment
-One-click deploy specialized agents:
-- **SEO Optimizer** - Fixes technical issues, creates sitemaps, adds schema
-- **Content Creator** - Generates optimized content, updates stale pages
-- **Speed Optimizer** - Compresses assets, implements caching, lazy loading
-- **PPC Manager** - Creates campaigns, optimizes bids, tracks conversions
-- **Email Automator** - Sets up flows, segments lists, A/B tests
-- **Social Manager** - Schedules posts, engages audience, tracks metrics
+## Tech Stack
 
-## 🛠️ Technology Stack
+- **Frontend**: HTML5, CSS3 (Mobile-first), Alpine.js
+- **Backend**: Node.js, Express
+- **Analysis**: OpenAI API, Web scraping
+- **Design**: Custom CSS with glassmorphism, gradients, and texture effects
+- **Deployment**: Vercel
 
-- **Frontend**: HTML5, CSS3, JavaScript (Alpine.js)
-- **Design System**: Custom CSS with modern UI patterns
-- **Analysis Engine**: JavaScript-based marketing analyzer
-- **API**: Express.js with real website analysis capabilities
-- **Hosting**: Vercel
+## Mobile-First Design
 
-## 💻 Development
+The platform is built with a mobile-first approach featuring:
+- Responsive design that looks stunning on all devices
+- Touch-optimized interactions
+- Progressive enhancement for desktop
+- Sophisticated visual effects with depth and texture
+- Non-AI aesthetic with human touches
 
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- OpenAI API key (for AI analysis features)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# Clone the repository
 git clone https://github.com/BRCG-Digital-Partners/fractional-cmo-ai.git
 cd fractional-cmo-ai
-
-# Install dependencies (for API server)
-npm install
-
-# Run development server
-npm run dev
-
-# Open in browser
-open http://localhost:3001
 ```
 
-## 📊 How It Works
+2. Install dependencies:
+```bash
+npm install
+```
 
-1. **Enter URL** - Just paste any website URL
-2. **AI Analysis** - Our agents analyze 150+ checkpoints across all marketing channels
-3. **Get Report** - See scores, issues, and prioritized recommendations
-4. **Deploy Fixes** - One-click deploy AI agents to implement solutions
+3. Copy environment variables:
+```bash
+cp .env.example .env
+```
 
-## 💰 Pricing Model
+4. Add your API keys to `.env`:
+```
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
-- **Preview** - $0 (25-point analysis)
-- **Professional** - $497/month (Full analysis + AI agents)
-- **Enterprise** - Custom (White-label, custom agents, SLA)
+5. Start the development server:
+```bash
+npm start
+```
 
-## 🎨 Design Philosophy
+The application will be available at `http://localhost:3001`
 
-Meridian AI features a modern, clean design with:
-- Glass morphism effects
-- Smooth micro-animations
-- Mobile-first responsive layout
-- Dark mode ready architecture
-- Accessible color contrast
-- Performance optimized assets
+## API Endpoints
 
-## 🤖 AI Agent Capabilities
+### SEO Analysis
+```
+POST /api/analyze/seo
+Body: { "url": "https://example.com" }
+```
 
-Each AI agent is specialized for specific marketing tasks:
+### Performance Analysis
+```
+POST /api/analyze/performance
+Body: { "url": "https://example.com" }
+```
 
-### SEO Agent
-- Generates and submits sitemaps
-- Creates robots.txt files
-- Implements schema markup
-- Fixes meta tags and descriptions
-- Optimizes page titles and headers
+### Social Media Discovery
+```
+POST /api/analyze/social
+Body: { "domain": "example.com" }
+```
 
-### Content Agent
-- Analyzes content gaps
-- Generates SEO-optimized articles
-- Updates stale content
-- Creates content calendars
-- Implements internal linking
+## Deployment
 
-### Performance Agent
-- Compresses images automatically
-- Minifies CSS/JavaScript
-- Implements browser caching
-- Enables lazy loading
-- Optimizes server response
+### Vercel (Recommended)
 
-## 🔐 Security & Privacy
+1. Install Vercel CLI:
+```bash
+npm i -g vercel
+```
 
-- No sensitive data stored
-- SSL encrypted connections
-- GDPR compliant
-- SOC2 ready architecture
-- Regular security audits
+2. Deploy:
+```bash
+vercel
+```
 
-## 🚦 Roadmap
+### Manual Deployment
 
-- [ ] Chrome extension for instant analysis
-- [ ] Slack/Teams integration
-- [ ] Custom reporting dashboards
-- [ ] API for developers
-- [ ] White-label solution
-- [ ] Mobile app
+Build the static files:
+```bash
+npm run build
+```
 
-## 📝 License
+The application can be served from any static hosting provider.
 
-MIT License - see LICENSE file for details
+## Design Philosophy
 
-## 🤝 About
+Alex² embraces a sophisticated, non-AI aesthetic with:
+- **Depth & Dimension**: Multiple layers, shadows, and glassmorphism effects
+- **Rich Textures**: Gradients, noise overlays, and animated elements
+- **Human Touch**: Warm colors, organic shapes, and thoughtful micro-interactions
+- **Mobile Excellence**: Every interaction optimized for touch devices
 
-Created by BRCG Digital Partners as a demonstration of how AI can transform traditional consulting services into scalable, automated solutions.
+## Pricing Tiers
+
+1. **Starter** ($2,500/month): Perfect for startups
+2. **Growth** ($5,000/month): For scaling companies
+3. **Enterprise** (Custom): Full-service solution
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+## License
+
+Copyright 2026 BRCG Digital Partners. All rights reserved.
+
+## Contact
+
+For questions or support, contact: kodie@brcg.co
 
 ---
 
-**Ready to transform your marketing?** Visit [Meridian AI](https://fractional-cmo-ai.vercel.app) and start your free analysis today.
+Built with ❤️ by BRCG Digital Partners
