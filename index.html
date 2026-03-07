@@ -393,7 +393,15 @@
                     </div>
                     
                     <div class="recommendations">
-                        <h4>Top Recommendations</h4>
+                        <h4>SEO Analysis Results</h4>
+                        
+                        <!-- Show real analysis if available -->
+                        <div x-show="analysisData" class="recommendation-item glass-card">
+                            <pre x-text="analysisData?.analysis || 'No analysis data'" style="white-space: pre-wrap; font-family: inherit; margin: 0; line-height: 1.6;"></pre>
+                        </div>
+                        
+                        <!-- Default recommendations -->
+                        <h4 style="margin-top: 2rem;">Additional Recommendations</h4>
                         <div class="recommendation-item glass-card">
                             <span class="rec-priority">High Impact</span>
                             <h5>SEO & Content Strategy Overhaul</h5>
@@ -473,6 +481,7 @@
                 currentStep: 0,
                 showResults: false,
                 scrolled: false,
+                analysisData: null,
                 
                 init() {
                     window.addEventListener('scroll', () => {
@@ -488,14 +497,39 @@
                     this.showResults = false;
                     this.currentStep = 0;
                     
-                    // Simulate analysis steps
-                    const steps = [1, 2, 3];
-                    for (let step of steps) {
-                        await this.delay(2000);
-                        this.currentStep = step;
+                    try {
+                        // Simulate analysis steps
+                        const steps = [1, 2, 3];
+                        for (let step of steps) {
+                            await this.delay(1500);
+                            this.currentStep = step;
+                        }
+                        
+                        // Make actual API call
+                        const response = await fetch('/api/analyze/seo', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ url: this.demoUrl })
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.status === 'success') {
+                            // Update the analysis results
+                            console.log('Analysis completed:', result.data);
+                            this.analysisData = result.data;
+                        } else {
+                            console.error('Analysis failed:', result.error);
+                            alert('Failed to analyze the website. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please check your URL and try again.');
                     }
                     
-                    await this.delay(1000);
+                    await this.delay(500);
                     this.analyzing = false;
                     this.showResults = true;
                 },
