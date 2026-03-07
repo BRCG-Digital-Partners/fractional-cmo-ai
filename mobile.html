@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex² - Mobile SEO Analyzer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #5046E5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:active {
+            background: #4039D0;
+        }
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.6;
+            display: none;
+        }
+        .loading {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alex² SEO Analyzer</h1>
+        <input type="text" id="url" placeholder="Enter website URL (e.g., brcg.co)" autocomplete="off">
+        <button onclick="analyze()">Analyze Website</button>
+        <div id="loading" class="loading">Analyzing... Please wait...</div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        async function analyze() {
+            const urlInput = document.getElementById('url');
+            const loadingEl = document.getElementById('loading');
+            const resultEl = document.getElementById('result');
+            
+            let url = urlInput.value.trim();
+            if (!url) {
+                alert('Please enter a website URL');
+                return;
+            }
+            
+            // Add https:// if not present
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            
+            loadingEl.style.display = 'block';
+            resultEl.style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/analyze/seo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url: url })
+                });
+                
+                const result = await response.json();
+                
+                loadingEl.style.display = 'none';
+                
+                if (result.status === 'success') {
+                    resultEl.textContent = result.data.analysis;
+                    resultEl.style.display = 'block';
+                } else {
+                    alert('Error: ' + (result.error || 'Failed to analyze'));
+                }
+            } catch (error) {
+                loadingEl.style.display = 'none';
+                alert('Error: Unable to analyze. Please try again.');
+                console.error(error);
+            }
+        }
+        
+        // Allow Enter key to submit
+        document.getElementById('url').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                analyze();
+            }
+        });
+    </script>
+</body>
+</html>

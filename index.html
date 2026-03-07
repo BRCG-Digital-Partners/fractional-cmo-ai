@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="app-functional.js"></script>
 </head>
 <body x-data="alexSquared()">
     <!-- Noise Texture Overlay -->
@@ -70,15 +69,19 @@
             <div class="demo-wrapper">
                 <div class="demo-input-group glass-card">
                     <input 
-                        type="url" 
+                        type="text" 
                         class="demo-input" 
-                        placeholder="Enter your company URL to start..."
+                        placeholder="Enter your company URL..."
                         x-model="demoUrl"
-                        @keyup.enter="startAnalysis()"
                     >
-                    <button class="demo-analyze-btn" @click="startAnalysis()" x-bind:disabled="analyzing">
+                    <button 
+                        class="demo-analyze-btn" 
+                        @click="startAnalysis()" 
+                        x-bind:disabled="analyzing"
+                        style="cursor: pointer; -webkit-tap-highlight-color: transparent;"
+                    >
                         <span x-show="!analyzing">Analyze My Marketing</span>
-                        <span x-show="analyzing">Analyzing...</span>
+                        <span x-show="analyzing" style="display: none;">Analyzing...</span>
                     </button>
                 </div>
             </div>
@@ -472,6 +475,9 @@
     </footer>
 
     <script>
+        // Mobile detection
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        
         function alexSquared() {
             return {
                 mobileMenuOpen: false,
@@ -490,12 +496,24 @@
                 },
                 
                 async startAnalysis() {
-                    if (!this.demoUrl) {
+                    if (!this.demoUrl || this.demoUrl.trim() === '') {
                         alert('Please enter a URL to analyze');
                         return;
                     }
                     
-                    console.log('Starting analysis for:', this.demoUrl);
+                    // Add https:// if not present
+                    let url = this.demoUrl.trim();
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'https://' + url;
+                    }
+                    
+                    console.log('Starting analysis for:', url);
+                    
+                    // For mobile, show a simple loading state
+                    if (isMobile) {
+                        alert('Analyzing ' + url + '...\n\nThis will take a few seconds.');
+                    }
+                    
                     this.showDemo = true;
                     this.analyzing = true;
                     this.showResults = false;
@@ -516,7 +534,7 @@
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify({ url: this.demoUrl })
+                            body: JSON.stringify({ url: url || this.demoUrl })
                         });
                         
                         console.log('Response status:', response.status);
