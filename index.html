@@ -73,12 +73,12 @@
                         type="url" 
                         class="demo-input" 
                         placeholder="Enter your company URL to start..."
-                        v-model="demoUrl"
-                        @keyup.enter="startAnalysis"
+                        x-model="demoUrl"
+                        @keyup.enter="startAnalysis()"
                     >
-                    <button class="demo-analyze-btn" @click="startAnalysis" :disabled="analyzing">
-                        <span v-if="!analyzing">Analyze My Marketing</span>
-                        <span v-else>Analyzing...</span>
+                    <button class="demo-analyze-btn" @click="startAnalysis()" x-bind:disabled="analyzing">
+                        <span x-show="!analyzing">Analyze My Marketing</span>
+                        <span x-show="analyzing">Analyzing...</span>
                     </button>
                 </div>
             </div>
@@ -490,8 +490,12 @@
                 },
                 
                 async startAnalysis() {
-                    if (!this.demoUrl) return;
+                    if (!this.demoUrl) {
+                        alert('Please enter a URL to analyze');
+                        return;
+                    }
                     
+                    console.log('Starting analysis for:', this.demoUrl);
                     this.showDemo = true;
                     this.analyzing = true;
                     this.showResults = false;
@@ -506,6 +510,7 @@
                         }
                         
                         // Make actual API call
+                        console.log('Making API call...');
                         const response = await fetch('/api/analyze/seo', {
                             method: 'POST',
                             headers: {
@@ -514,7 +519,9 @@
                             body: JSON.stringify({ url: this.demoUrl })
                         });
                         
+                        console.log('Response status:', response.status);
                         const result = await response.json();
+                        console.log('Result:', result);
                         
                         if (result.status === 'success') {
                             // Update the analysis results
