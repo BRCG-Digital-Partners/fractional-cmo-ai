@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Marketing Audit - AI Fractional CMO</title>
+    <meta name="description" content="Get a comprehensive marketing audit powered by AI. SEO, content, conversions, technical analysis and actionable roadmap.">
+    <link rel="stylesheet" href="enhanced-styles.css">
+    <link rel="stylesheet" href="premium-styles.css">
+    <style>
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .audit-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .audit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            position: relative;
+            background: conic-gradient(
+                var(--royal-purple) var(--score-percentage),
+                #e5e5e5 var(--score-percentage)
+            );
+        }
+        
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .score-value {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .critical-issue {
+            background: #fee;
+            border-left: 4px solid #dc2626;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning-issue {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .opportunity-item {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .roadmap-section {
+            margin: 2rem 0;
+        }
+        
+        .roadmap-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline-phase {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-top: 4px solid var(--royal-purple);
+        }
+        
+        .timeline-phase h4 {
+            color: var(--royal-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .action-item {
+            background: white;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .metric-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--royal-purple);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+        }
+        
+        .analysis-tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            border-bottom: 2px solid #e5e5e5;
+            overflow-x: auto;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: var(--royal-purple);
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--royal-purple);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .download-report {
+            background: linear-gradient(135deg, var(--royal-purple), var(--bright-teal));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            transition: transform 0.3s;
+        }
+        
+        .download-report:hover {
+            transform: translateY(-2px);
+        }
+        
+        .insight-card {
+            background: linear-gradient(135deg, #f8fafc, #fff);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .insight-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--royal-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" x-data="auditApp()">
+        <!-- Header -->
+        <header class="site-header">
+            <nav class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem;">
+                <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--royal-purple);">
+                    AI Fractional CMO
+                </div>
+                <a href="index.html" class="btn-secondary">Back to Home</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section" style="background: linear-gradient(135deg, #667eea 0%, #22d3ee 100%); color: white; padding: 4rem 0;">
+            <div class="container" style="text-align: center;">
+                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Comprehensive Marketing Audit</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9;">Get a detailed analysis of your website's marketing performance</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="container" style="padding: 3rem 1rem;">
+            <!-- Analysis Form -->
+            <div x-show="!analyzing && !showResults" class="analysis-form" style="max-width: 600px; margin: 0 auto;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h2 style="margin-bottom: 1.5rem;">Enter Your Website</h2>
+                    <form @submit.prevent="startAnalysis()">
+                        <input 
+                            type="text" 
+                            x-model="websiteUrl" 
+                            placeholder="example.com" 
+                            style="width: 100%; padding: 1rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1.1rem; margin-bottom: 1rem;"
+                        >
+                        <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                            Start Comprehensive Audit
+                        </button>
+                    </form>
+                    <p style="text-align: center; color: #666; margin-top: 1rem;">
+                        Analysis typically takes 15-30 seconds
+                    </p>
+                </div>
+            </div>
+
+            <!-- Analyzing State -->
+            <div x-show="analyzing" class="analyzing-state" style="text-align: center; padding: 4rem;">
+                <div class="spinner" style="margin: 0 auto 2rem;"></div>
+                <h2 style="margin-bottom: 1rem;">Analyzing Your Website...</h2>
+                <div class="progress-steps" style="max-width: 600px; margin: 2rem auto;">
+                    <div class="step" :class="currentStep >= 1 ? 'active' : ''" style="margin: 1rem 0;">
+                        ✓ Crawling website structure
+                    </div>
+                    <div class="step" :class="currentStep >= 2 ? 'active' : ''" style="margin: 1rem 0;">
+                        ✓ Analyzing SEO factors
+                    </div>
+                    <div class="step" :class="currentStep >= 3 ? 'active' : ''" style="margin: 1rem 0;">
+                        ✓ Evaluating content quality
+                    </div>
+                    <div class="step" :class="currentStep >= 4 ? 'active' : ''" style="margin: 1rem 0;">
+                        ✓ Checking technical performance
+                    </div>
+                    <div class="step" :class="currentStep >= 5 ? 'active' : ''" style="margin: 1rem 0;">
+                        ✓ Identifying opportunities
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div x-show="showResults" class="results-section">
+                <!-- Overall Score -->
+                <div class="overall-score" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="margin-bottom: 2rem;">Marketing Performance Score</h2>
+                    <div class="score-circle" :style="`--score-percentage: ${analysisData?.overallScore || 0}%`">
+                        <span class="score-value" x-text="`${analysisData?.overallScore || 0}/100`"></span>
+                    </div>
+                    <p style="font-size: 1.25rem; color: #666;" x-text="getScoreDescription(analysisData?.overallScore)"></p>
+                </div>
+
+                <!-- Score Breakdown -->
+                <div class="audit-grid">
+                    <div class="audit-card">
+                        <h3>SEO Score</h3>
+                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.seo || 0}%`">
+                            <span class="score-value" x-text="`${analysisData?.scores?.seo || 0}`"></span>
+                        </div>
+                        <p>Search engine optimization readiness</p>
+                    </div>
+                    <div class="audit-card">
+                        <h3>Content Score</h3>
+                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.content || 0}%`">
+                            <span class="score-value" x-text="`${analysisData?.scores?.content || 0}`"></span>
+                        </div>
+                        <p>Content quality and depth</p>
+                    </div>
+                    <div class="audit-card">
+                        <h3>Technical Score</h3>
+                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.technical || 0}%`">
+                            <span class="score-value" x-text="`${analysisData?.scores?.technical || 0}`"></span>
+                        </div>
+                        <p>Technical implementation</p>
+                    </div>
+                    <div class="audit-card">
+                        <h3>Conversion Score</h3>
+                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.conversion || 0}%`">
+                            <span class="score-value" x-text="`${analysisData?.scores?.conversion || 0}`"></span>
+                        </div>
+                        <p>Lead capture & CTAs</p>
+                    </div>
+                </div>
+
+                <!-- Critical Issues -->
+                <div class="issues-section" style="margin: 3rem 0;" x-show="analysisData?.criticalIssues?.length > 0">
+                    <h2 style="margin-bottom: 1.5rem;">🚨 Critical Issues to Fix</h2>
+                    <template x-for="issue in analysisData?.criticalIssues || []">
+                        <div class="critical-issue">
+                            <h4 x-text="issue.issue"></h4>
+                            <p x-text="issue.impact" style="margin: 0.5rem 0; color: #666;"></p>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Warnings -->
+                <div class="warnings-section" style="margin: 3rem 0;" x-show="analysisData?.warnings?.length > 0">
+                    <h2 style="margin-bottom: 1.5rem;">⚠️ Warnings</h2>
+                    <template x-for="warning in analysisData?.warnings || []">
+                        <div class="warning-issue">
+                            <h4 x-text="warning.issue"></h4>
+                            <p x-text="warning.impact" style="margin: 0.5rem 0; color: #666;"></p>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Opportunities -->
+                <div class="opportunities-section" style="margin: 3rem 0;" x-show="analysisData?.opportunities?.length > 0">
+                    <h2 style="margin-bottom: 1.5rem;">💡 Growth Opportunities</h2>
+                    <template x-for="opp in analysisData?.opportunities || []">
+                        <div class="opportunity-item">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <h4 x-text="opp.opportunity"></h4>
+                                <span class="metric-badge" x-text="`${opp.effort} effort`"></span>
+                            </div>
+                            <p x-text="opp.impact" style="margin: 0.5rem 0; color: #666;"></p>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Detailed Analysis Tabs -->
+                <div class="detailed-analysis" style="margin: 3rem 0;">
+                    <h2 style="margin-bottom: 1.5rem;">Detailed Analysis</h2>
+                    <div class="analysis-tabs">
+                        <button class="tab-button active" @click="activeTab = 'seo'">SEO Analysis</button>
+                        <button class="tab-button" @click="activeTab = 'content'">Content Analysis</button>
+                        <button class="tab-button" @click="activeTab = 'technical'">Technical Analysis</button>
+                        <button class="tab-button" @click="activeTab = 'conversion'">Conversion Analysis</button>
+                        <button class="tab-button" @click="activeTab = 'ux'">User Experience</button>
+                        <button class="tab-button" @click="activeTab = 'competitive'">Competitive Insights</button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content active" x-show="activeTab === 'seo'">
+                        <div class="insight-card">
+                            <h3>SEO Analysis</h3>
+                            <p x-text="analysisData?.detailedAnalysis?.seo?.summary"></p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Strengths</h4>
+                                <template x-for="strength in analysisData?.detailedAnalysis?.seo?.strengths || []">
+                                    <div class="metric-badge" x-text="strength"></div>
+                                </template>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Areas for Improvement</h4>
+                                <template x-for="weakness in analysisData?.detailedAnalysis?.seo?.weaknesses || []">
+                                    <p style="color: #dc2626;" x-text="'• ' + weakness"></p>
+                                </template>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Recommendations</h4>
+                                <template x-for="rec in analysisData?.detailedAnalysis?.seo?.recommendations || []">
+                                    <p x-text="'• ' + rec"></p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" x-show="activeTab === 'content'">
+                        <div class="insight-card">
+                            <h3>Content Analysis</h3>
+                            <p x-text="analysisData?.detailedAnalysis?.content?.summary"></p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Content Metrics</h4>
+                                <div class="metric-badge" x-text="`Word Count: ${analysisData?.detailedAnalysis?.content?.metrics?.wordCount || 0}`"></div>
+                                <div class="metric-badge" x-text="`Headings: ${analysisData?.detailedAnalysis?.content?.metrics?.headings || 'N/A'}`"></div>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Recommendations</h4>
+                                <template x-for="rec in analysisData?.detailedAnalysis?.content?.recommendations || []">
+                                    <p x-text="'• ' + rec"></p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" x-show="activeTab === 'technical'">
+                        <div class="insight-card">
+                            <h3>Technical Analysis</h3>
+                            <p x-text="analysisData?.detailedAnalysis?.technical?.summary"></p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Technical Checklist</h4>
+                                <template x-for="[key, value] in Object.entries(analysisData?.detailedAnalysis?.technical?.checklist || {})">
+                                    <p>
+                                        <span x-text="value ? '✅' : '❌'"></span>
+                                        <span x-text="key.replace(/([A-Z])/g, ' $1').trim()"></span>
+                                    </p>
+                                </template>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Recommendations</h4>
+                                <template x-for="rec in analysisData?.detailedAnalysis?.technical?.recommendations || []">
+                                    <p x-text="'• ' + rec"></p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" x-show="activeTab === 'conversion'">
+                        <div class="insight-card">
+                            <h3>Conversion Analysis</h3>
+                            <p x-text="analysisData?.detailedAnalysis?.conversion?.summary"></p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Conversion Elements</h4>
+                                <template x-for="[key, value] in Object.entries(analysisData?.detailedAnalysis?.conversion?.elements || {})">
+                                    <div class="metric-badge" x-text="`${key}: ${value}`"></div>
+                                </template>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Recommendations</h4>
+                                <template x-for="rec in analysisData?.detailedAnalysis?.conversion?.recommendations || []">
+                                    <p x-text="'• ' + rec"></p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" x-show="activeTab === 'ux'">
+                        <div class="insight-card">
+                            <h3>User Experience Analysis</h3>
+                            <p x-text="analysisData?.detailedAnalysis?.userExperience?.summary"></p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <p x-text="`Mobile Ready: ${analysisData?.detailedAnalysis?.userExperience?.mobileReady ? '✅ Yes' : '❌ No'}`"></p>
+                                <p x-text="`Navigation: ${analysisData?.detailedAnalysis?.userExperience?.navigation?.hasNavigation ? '✅ Present' : '❌ Missing'}`"></p>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Recommendations</h4>
+                                <template x-for="rec in analysisData?.detailedAnalysis?.userExperience?.recommendations || []">
+                                    <p x-text="'• ' + rec"></p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" x-show="activeTab === 'competitive'">
+                        <div class="insight-card">
+                            <h3>Competitive Insights</h3>
+                            <p x-text="analysisData?.detailedAnalysis?.competitive?.summary"></p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <div class="metric-badge" x-text="`Content Depth: ${analysisData?.detailedAnalysis?.competitive?.contentDepth || 'N/A'}`"></div>
+                                <div class="metric-badge" x-text="`Technical Readiness: ${analysisData?.detailedAnalysis?.competitive?.technicalReadiness || 'N/A'}`"></div>
+                            </div>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <h4>Recommendations</h4>
+                                <template x-for="rec in analysisData?.detailedAnalysis?.competitive?.recommendations || []">
+                                    <p x-text="'• ' + rec"></p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Roadmap -->
+                <div class="roadmap-section">
+                    <h2 style="margin-bottom: 1.5rem;">📍 Your Strategic Roadmap</h2>
+                    <div class="roadmap-timeline">
+                        <div class="timeline-phase">
+                            <h4>Immediate Actions (Week 1)</h4>
+                            <template x-for="item in analysisData?.roadmap?.immediate || []">
+                                <div class="action-item">
+                                    <strong x-text="item.category"></strong>: 
+                                    <span x-text="item.action"></span>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="timeline-phase">
+                            <h4>Short Term (Month 1)</h4>
+                            <template x-for="item in analysisData?.roadmap?.shortTerm || []">
+                                <div class="action-item">
+                                    <strong x-text="item.category"></strong>: 
+                                    <span x-text="item.action"></span>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="timeline-phase">
+                            <h4>Medium Term (3 Months)</h4>
+                            <template x-for="item in analysisData?.roadmap?.mediumTerm || []">
+                                <div class="action-item">
+                                    <strong x-text="item.category"></strong>: 
+                                    <span x-text="item.action"></span>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="timeline-phase">
+                            <h4>Long Term (3+ Months)</h4>
+                            <template x-for="item in analysisData?.roadmap?.longTerm || []">
+                                <div class="action-item">
+                                    <strong x-text="item.category"></strong>: 
+                                    <span x-text="item.action"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: #f8fafc; border-radius: 12px;">
+                    <h2 style="margin-bottom: 1rem;">Ready to Improve Your Marketing?</h2>
+                    <p style="font-size: 1.25rem; margin-bottom: 2rem;">Let's discuss how to implement these recommendations</p>
+                    <button class="download-report">
+                        📊 Download Full Report
+                    </button>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://calendly.com/your-link" class="btn-primary" style="padding: 1rem 2rem;">
+                            Schedule Strategy Call
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer" style="background: #1a1a1a; color: white; padding: 2rem 0; text-align: center;">
+            <p>© 2024 AI Fractional CMO. Powered by advanced AI analysis.</p>
+        </footer>
+    </div>
+
+    <!-- Alpine.js -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        function auditApp() {
+            return {
+                websiteUrl: '',
+                analyzing: false,
+                showResults: false,
+                currentStep: 0,
+                analysisData: null,
+                activeTab: 'seo',
+                
+                async startAnalysis() {
+                    if (!this.websiteUrl) {
+                        alert('Please enter a website URL');
+                        return;
+                    }
+                    
+                    let url = this.websiteUrl.trim();
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'https://' + url;
+                    }
+                    
+                    this.analyzing = true;
+                    this.showResults = false;
+                    this.currentStep = 0;
+                    
+                    try {
+                        // Simulate analysis steps
+                        const steps = [1, 2, 3, 4, 5];
+                        for (let step of steps) {
+                            await this.delay(1500);
+                            this.currentStep = step;
+                        }
+                        
+                        // Make API call
+                        const response = await fetch('/api/analyze/comprehensive-audit', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ url: url })
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.status === 'success') {
+                            this.analysisData = result.data.analysis;
+                        } else {
+                            alert('Failed to analyze website. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred during analysis.');
+                    } finally {
+                        this.analyzing = false;
+                        this.showResults = true;
+                    }
+                },
+                
+                getScoreDescription(score) {
+                    if (!score) return '';
+                    if (score >= 80) return 'Excellent! Your marketing foundation is strong.';
+                    if (score >= 60) return 'Good foundation with room for improvement.';
+                    if (score >= 40) return 'Several areas need attention for better results.';
+                    return 'Significant improvements needed across multiple areas.';
+                },
+                
+                delay(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--royal-purple);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .step {
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            color: #999;
+            transition: all 0.3s;
+        }
+        
+        .step.active {
+            background: #ecfdf5;
+            color: #10b981;
+            font-weight: 600;
+        }
+    </style>
+</body>
+</html>
