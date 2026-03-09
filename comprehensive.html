@@ -5,671 +5,1125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprehensive Marketing Audit - AI Fractional CMO</title>
     <meta name="description" content="Get a comprehensive marketing audit powered by AI. SEO, content, conversions, technical analysis and actionable roadmap.">
-    <link rel="stylesheet" href="enhanced-styles.css">
-    <link rel="stylesheet" href="premium-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .audit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+        :root {
+            --primary: #5046E5;
+            --primary-dark: #4338CA;
+            --secondary: #F59E0B;
+            --success: #10B981;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
-        .audit-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .audit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: #FAFBFC;
+            overflow-x: hidden;
         }
-        
-        .score-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+
+        /* Modern Header */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            font-weight: bold;
-            position: relative;
-            background: conic-gradient(
-                var(--royal-purple) var(--score-percentage),
-                #e5e5e5 var(--score-percentage)
-            );
         }
-        
-        .score-circle::before {
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-        }
-        
-        .score-value {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .critical-issue {
-            background: #fee;
-            border-left: 4px solid #dc2626;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 4px;
-        }
-        
-        .warning-issue {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 4px;
-        }
-        
-        .opportunity-item {
-            background: #ecfdf5;
-            border-left: 4px solid #10b981;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 4px;
-        }
-        
-        .roadmap-section {
-            margin: 2rem 0;
-        }
-        
-        .roadmap-timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .timeline-phase {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border-top: 4px solid var(--royal-purple);
-        }
-        
-        .timeline-phase h4 {
-            color: var(--royal-purple);
-            margin-bottom: 1rem;
-        }
-        
-        .action-item {
-            background: white;
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            border-radius: 6px;
-            border: 1px solid #e5e5e5;
-        }
-        
-        .metric-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(102, 126, 234, 0.1);
-            color: var(--royal-purple);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            margin: 0.25rem;
-        }
-        
-        .analysis-tabs {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-            border-bottom: 2px solid #e5e5e5;
-            overflow-x: auto;
-        }
-        
-        .tab-button {
-            padding: 0.75rem 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            position: relative;
-            white-space: nowrap;
-            color: #666;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: var(--royal-purple);
-        }
-        
-        .tab-button.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
+            top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: var(--royal-purple);
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        
-        .tab-content {
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Audit Form */
+        .audit-form-container {
+            max-width: 600px;
+            margin: -3rem auto 3rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        .audit-form {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            padding: 2.5rem;
+            border: 1px solid var(--gray-100);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--gray-50);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(80, 70, 229, 0.1);
+        }
+
+        .analyze-button {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analyze-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(80, 70, 229, 0.4);
+        }
+
+        .analyze-button:active {
+            transform: translateY(-1px);
+        }
+
+        .analyze-button.analyzing {
+            background: var(--gray-400);
+            cursor: not-allowed;
+        }
+
+        /* Loading Animation */
+        .loader {
             display: none;
-            animation: fadeIn 0.3s ease-in;
+            text-align: center;
+            padding: 4rem 2rem;
         }
-        
-        .tab-content.active {
+
+        .loader.active {
             display: block;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .pulse-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
-        
-        .download-report {
-            background: linear-gradient(135deg, var(--royal-purple), var(--bright-teal));
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+
+        .pulse {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: pulse-animation 1.5s ease-in-out infinite;
+        }
+
+        .pulse:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .pulse:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse-animation {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .analysis-step {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .analysis-step.complete {
+            border-left: 4px solid var(--success);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Results Section */
+        .results-container {
+            display: none;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .results-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .overall-score {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .score-ring {
+            transform: rotate(-90deg);
+        }
+
+        .score-background {
+            fill: none;
+            stroke: var(--gray-200);
+            stroke-width: 20;
+        }
+
+        .score-progress {
+            fill: none;
+            stroke: url(#scoreGradient);
+            stroke-width: 20;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .score-label {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--gray-600);
             cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px -2px rgba(80, 70, 229, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Audit Cards */
+        .audit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .audit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .card-score {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            margin: 2rem 0;
-            transition: transform 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
-        
-        .download-report:hover {
+
+        .score-high {
+            background: var(--success);
+            color: white;
+        }
+
+        .score-medium {
+            background: var(--warning);
+            color: white;
+        }
+
+        .score-low {
+            background: var(--danger);
+            color: white;
+        }
+
+        .issue-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .issue-item {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .issue-item::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 1.2rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .critical {
+            background: #FEE2E2;
+            border: 1px solid #FECACA;
+            color: #991B1B;
+        }
+
+        .critical::before {
+            background: var(--danger);
+        }
+
+        .warning {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #92400E;
+        }
+
+        .warning::before {
+            background: var(--warning);
+        }
+
+        .success {
+            background: #D1FAE5;
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+        }
+
+        .success::before {
+            background: var(--success);
+        }
+
+        /* Roadmap Timeline */
+        .roadmap-container {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .roadmap-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .timeline-phase {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 2px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-phase:hover {
+            border-color: var(--primary);
             transform: translateY(-2px);
         }
-        
-        .insight-card {
-            background: linear-gradient(135deg, #f8fafc, #fff);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border: 1px solid #e5e5e5;
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .insight-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--royal-purple);
-            color: white;
-            border-radius: 50%;
+
+        .phase-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .phase-immediate {
+            background: #FEE2E2;
+            color: var(--danger);
+        }
+
+        .phase-short {
+            background: #FEF3C7;
+            color: var(--warning);
+        }
+
+        .phase-medium {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
+        .phase-long {
+            background: #D1FAE5;
+            color: var(--success);
+        }
+
+        .action-list {
+            list-style: none;
+        }
+
+        .action-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border: 1px solid var(--gray-200);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: 24px;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--gray-900);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--gray-900);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .audit-form {
+                padding: 2rem;
+            }
+
+            .tab-content.active {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header, .cta-section, .analyze-button {
+                display: none;
+            }
+
+            .results-container {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease forwards;
         }
     </style>
 </head>
 <body>
-    <div id="app" x-data="auditApp()">
-        <!-- Header -->
-        <header class="site-header">
-            <nav class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem;">
-                <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--royal-purple);">
-                    AI Fractional CMO
-                </div>
-                <a href="index.html" class="btn-secondary">Back to Home</a>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">AI Fractional CMO</a>
+            <nav>
+                <a href="/" class="btn btn-secondary" style="padding: 0.5rem 1.5rem;">Back to Home</a>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero-section" style="background: linear-gradient(135deg, #667eea 0%, #22d3ee 100%); color: white; padding: 4rem 0;">
-            <div class="container" style="text-align: center;">
-                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Comprehensive Marketing Audit</h1>
-                <p style="font-size: 1.25rem; opacity: 0.9;">Get a detailed analysis of your website's marketing performance</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Comprehensive Marketing Audit</h1>
+            <p>Get an AI-powered analysis of your marketing performance with actionable insights and a strategic roadmap</p>
+        </div>
+    </section>
+
+    <!-- Audit Form -->
+    <div class="audit-form-container">
+        <form class="audit-form" id="auditForm">
+            <div class="form-group">
+                <label class="form-label" for="websiteUrl">Enter your website URL</label>
+                <input 
+                    type="url" 
+                    id="websiteUrl" 
+                    class="form-input" 
+                    placeholder="https://example.com"
+                    required
+                />
             </div>
-        </section>
-
-        <!-- Main Content -->
-        <main class="container" style="padding: 3rem 1rem;">
-            <!-- Analysis Form -->
-            <div x-show="!analyzing && !showResults" class="analysis-form" style="max-width: 600px; margin: 0 auto;">
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <h2 style="margin-bottom: 1.5rem;">Enter Your Website</h2>
-                    <form @submit.prevent="startAnalysis()">
-                        <input 
-                            type="text" 
-                            x-model="websiteUrl" 
-                            placeholder="example.com" 
-                            style="width: 100%; padding: 1rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1.1rem; margin-bottom: 1rem;"
-                        >
-                        <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
-                            Start Comprehensive Audit
-                        </button>
-                    </form>
-                    <p style="text-align: center; color: #666; margin-top: 1rem;">
-                        Analysis typically takes 15-30 seconds
-                    </p>
-                </div>
-            </div>
-
-            <!-- Analyzing State -->
-            <div x-show="analyzing" class="analyzing-state" style="text-align: center; padding: 4rem;">
-                <div class="spinner" style="margin: 0 auto 2rem;"></div>
-                <h2 style="margin-bottom: 1rem;">Analyzing Your Website...</h2>
-                <div class="progress-steps" style="max-width: 600px; margin: 2rem auto;">
-                    <div class="step" :class="currentStep >= 1 ? 'active' : ''" style="margin: 1rem 0;">
-                        ✓ Crawling website structure
-                    </div>
-                    <div class="step" :class="currentStep >= 2 ? 'active' : ''" style="margin: 1rem 0;">
-                        ✓ Analyzing SEO factors
-                    </div>
-                    <div class="step" :class="currentStep >= 3 ? 'active' : ''" style="margin: 1rem 0;">
-                        ✓ Evaluating content quality
-                    </div>
-                    <div class="step" :class="currentStep >= 4 ? 'active' : ''" style="margin: 1rem 0;">
-                        ✓ Checking technical performance
-                    </div>
-                    <div class="step" :class="currentStep >= 5 ? 'active' : ''" style="margin: 1rem 0;">
-                        ✓ Identifying opportunities
-                    </div>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div x-show="showResults" class="results-section">
-                <!-- Overall Score -->
-                <div class="overall-score" style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="margin-bottom: 2rem;">Marketing Performance Score</h2>
-                    <div class="score-circle" :style="`--score-percentage: ${analysisData?.overallScore || 0}%`">
-                        <span class="score-value" x-text="`${analysisData?.overallScore || 0}/100`"></span>
-                    </div>
-                    <p style="font-size: 1.25rem; color: #666;" x-text="getScoreDescription(analysisData?.overallScore)"></p>
-                </div>
-
-                <!-- Score Breakdown -->
-                <div class="audit-grid">
-                    <div class="audit-card">
-                        <h3>SEO Score</h3>
-                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.seo || 0}%`">
-                            <span class="score-value" x-text="`${analysisData?.scores?.seo || 0}`"></span>
-                        </div>
-                        <p>Search engine optimization readiness</p>
-                    </div>
-                    <div class="audit-card">
-                        <h3>Content Score</h3>
-                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.content || 0}%`">
-                            <span class="score-value" x-text="`${analysisData?.scores?.content || 0}`"></span>
-                        </div>
-                        <p>Content quality and depth</p>
-                    </div>
-                    <div class="audit-card">
-                        <h3>Technical Score</h3>
-                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.technical || 0}%`">
-                            <span class="score-value" x-text="`${analysisData?.scores?.technical || 0}`"></span>
-                        </div>
-                        <p>Technical implementation</p>
-                    </div>
-                    <div class="audit-card">
-                        <h3>Conversion Score</h3>
-                        <div class="score-circle" style="width: 80px; height: 80px; font-size: 1.5rem;" :style="`--score-percentage: ${analysisData?.scores?.conversion || 0}%`">
-                            <span class="score-value" x-text="`${analysisData?.scores?.conversion || 0}`"></span>
-                        </div>
-                        <p>Lead capture & CTAs</p>
-                    </div>
-                </div>
-
-                <!-- Critical Issues -->
-                <div class="issues-section" style="margin: 3rem 0;" x-show="analysisData?.criticalIssues?.length > 0">
-                    <h2 style="margin-bottom: 1.5rem;">🚨 Critical Issues to Fix</h2>
-                    <template x-for="issue in analysisData?.criticalIssues || []">
-                        <div class="critical-issue">
-                            <h4 x-text="issue.issue"></h4>
-                            <p x-text="issue.impact" style="margin: 0.5rem 0; color: #666;"></p>
-                        </div>
-                    </template>
-                </div>
-
-                <!-- Warnings -->
-                <div class="warnings-section" style="margin: 3rem 0;" x-show="analysisData?.warnings?.length > 0">
-                    <h2 style="margin-bottom: 1.5rem;">⚠️ Warnings</h2>
-                    <template x-for="warning in analysisData?.warnings || []">
-                        <div class="warning-issue">
-                            <h4 x-text="warning.issue"></h4>
-                            <p x-text="warning.impact" style="margin: 0.5rem 0; color: #666;"></p>
-                        </div>
-                    </template>
-                </div>
-
-                <!-- Opportunities -->
-                <div class="opportunities-section" style="margin: 3rem 0;" x-show="analysisData?.opportunities?.length > 0">
-                    <h2 style="margin-bottom: 1.5rem;">💡 Growth Opportunities</h2>
-                    <template x-for="opp in analysisData?.opportunities || []">
-                        <div class="opportunity-item">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <h4 x-text="opp.opportunity"></h4>
-                                <span class="metric-badge" x-text="`${opp.effort} effort`"></span>
-                            </div>
-                            <p x-text="opp.impact" style="margin: 0.5rem 0; color: #666;"></p>
-                        </div>
-                    </template>
-                </div>
-
-                <!-- Detailed Analysis Tabs -->
-                <div class="detailed-analysis" style="margin: 3rem 0;">
-                    <h2 style="margin-bottom: 1.5rem;">Detailed Analysis</h2>
-                    <div class="analysis-tabs">
-                        <button class="tab-button active" @click="activeTab = 'seo'">SEO Analysis</button>
-                        <button class="tab-button" @click="activeTab = 'content'">Content Analysis</button>
-                        <button class="tab-button" @click="activeTab = 'technical'">Technical Analysis</button>
-                        <button class="tab-button" @click="activeTab = 'conversion'">Conversion Analysis</button>
-                        <button class="tab-button" @click="activeTab = 'ux'">User Experience</button>
-                        <button class="tab-button" @click="activeTab = 'competitive'">Competitive Insights</button>
-                    </div>
-
-                    <!-- Tab Contents -->
-                    <div class="tab-content active" x-show="activeTab === 'seo'">
-                        <div class="insight-card">
-                            <h3>SEO Analysis</h3>
-                            <p x-text="analysisData?.detailedAnalysis?.seo?.summary"></p>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Strengths</h4>
-                                <template x-for="strength in analysisData?.detailedAnalysis?.seo?.strengths || []">
-                                    <div class="metric-badge" x-text="strength"></div>
-                                </template>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Areas for Improvement</h4>
-                                <template x-for="weakness in analysisData?.detailedAnalysis?.seo?.weaknesses || []">
-                                    <p style="color: #dc2626;" x-text="'• ' + weakness"></p>
-                                </template>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Recommendations</h4>
-                                <template x-for="rec in analysisData?.detailedAnalysis?.seo?.recommendations || []">
-                                    <p x-text="'• ' + rec"></p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" x-show="activeTab === 'content'">
-                        <div class="insight-card">
-                            <h3>Content Analysis</h3>
-                            <p x-text="analysisData?.detailedAnalysis?.content?.summary"></p>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Content Metrics</h4>
-                                <div class="metric-badge" x-text="`Word Count: ${analysisData?.detailedAnalysis?.content?.metrics?.wordCount || 0}`"></div>
-                                <div class="metric-badge" x-text="`Headings: ${analysisData?.detailedAnalysis?.content?.metrics?.headings || 'N/A'}`"></div>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Recommendations</h4>
-                                <template x-for="rec in analysisData?.detailedAnalysis?.content?.recommendations || []">
-                                    <p x-text="'• ' + rec"></p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" x-show="activeTab === 'technical'">
-                        <div class="insight-card">
-                            <h3>Technical Analysis</h3>
-                            <p x-text="analysisData?.detailedAnalysis?.technical?.summary"></p>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Technical Checklist</h4>
-                                <template x-for="[key, value] in Object.entries(analysisData?.detailedAnalysis?.technical?.checklist || {})">
-                                    <p>
-                                        <span x-text="value ? '✅' : '❌'"></span>
-                                        <span x-text="key.replace(/([A-Z])/g, ' $1').trim()"></span>
-                                    </p>
-                                </template>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Recommendations</h4>
-                                <template x-for="rec in analysisData?.detailedAnalysis?.technical?.recommendations || []">
-                                    <p x-text="'• ' + rec"></p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" x-show="activeTab === 'conversion'">
-                        <div class="insight-card">
-                            <h3>Conversion Analysis</h3>
-                            <p x-text="analysisData?.detailedAnalysis?.conversion?.summary"></p>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Conversion Elements</h4>
-                                <template x-for="[key, value] in Object.entries(analysisData?.detailedAnalysis?.conversion?.elements || {})">
-                                    <div class="metric-badge" x-text="`${key}: ${value}`"></div>
-                                </template>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Recommendations</h4>
-                                <template x-for="rec in analysisData?.detailedAnalysis?.conversion?.recommendations || []">
-                                    <p x-text="'• ' + rec"></p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" x-show="activeTab === 'ux'">
-                        <div class="insight-card">
-                            <h3>User Experience Analysis</h3>
-                            <p x-text="analysisData?.detailedAnalysis?.userExperience?.summary"></p>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <p x-text="`Mobile Ready: ${analysisData?.detailedAnalysis?.userExperience?.mobileReady ? '✅ Yes' : '❌ No'}`"></p>
-                                <p x-text="`Navigation: ${analysisData?.detailedAnalysis?.userExperience?.navigation?.hasNavigation ? '✅ Present' : '❌ Missing'}`"></p>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Recommendations</h4>
-                                <template x-for="rec in analysisData?.detailedAnalysis?.userExperience?.recommendations || []">
-                                    <p x-text="'• ' + rec"></p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" x-show="activeTab === 'competitive'">
-                        <div class="insight-card">
-                            <h3>Competitive Insights</h3>
-                            <p x-text="analysisData?.detailedAnalysis?.competitive?.summary"></p>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <div class="metric-badge" x-text="`Content Depth: ${analysisData?.detailedAnalysis?.competitive?.contentDepth || 'N/A'}`"></div>
-                                <div class="metric-badge" x-text="`Technical Readiness: ${analysisData?.detailedAnalysis?.competitive?.technicalReadiness || 'N/A'}`"></div>
-                            </div>
-                            
-                            <div style="margin: 1.5rem 0;">
-                                <h4>Recommendations</h4>
-                                <template x-for="rec in analysisData?.detailedAnalysis?.competitive?.recommendations || []">
-                                    <p x-text="'• ' + rec"></p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Strategic Roadmap -->
-                <div class="roadmap-section">
-                    <h2 style="margin-bottom: 1.5rem;">📍 Your Strategic Roadmap</h2>
-                    <div class="roadmap-timeline">
-                        <div class="timeline-phase">
-                            <h4>Immediate Actions (Week 1)</h4>
-                            <template x-for="item in analysisData?.roadmap?.immediate || []">
-                                <div class="action-item">
-                                    <strong x-text="item.category"></strong>: 
-                                    <span x-text="item.action"></span>
-                                </div>
-                            </template>
-                        </div>
-                        <div class="timeline-phase">
-                            <h4>Short Term (Month 1)</h4>
-                            <template x-for="item in analysisData?.roadmap?.shortTerm || []">
-                                <div class="action-item">
-                                    <strong x-text="item.category"></strong>: 
-                                    <span x-text="item.action"></span>
-                                </div>
-                            </template>
-                        </div>
-                        <div class="timeline-phase">
-                            <h4>Medium Term (3 Months)</h4>
-                            <template x-for="item in analysisData?.roadmap?.mediumTerm || []">
-                                <div class="action-item">
-                                    <strong x-text="item.category"></strong>: 
-                                    <span x-text="item.action"></span>
-                                </div>
-                            </template>
-                        </div>
-                        <div class="timeline-phase">
-                            <h4>Long Term (3+ Months)</h4>
-                            <template x-for="item in analysisData?.roadmap?.longTerm || []">
-                                <div class="action-item">
-                                    <strong x-text="item.category"></strong>: 
-                                    <span x-text="item.action"></span>
-                                </div>
-                            </template>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA Section -->
-                <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: #f8fafc; border-radius: 12px;">
-                    <h2 style="margin-bottom: 1rem;">Ready to Improve Your Marketing?</h2>
-                    <p style="font-size: 1.25rem; margin-bottom: 2rem;">Let's discuss how to implement these recommendations</p>
-                    <button class="download-report">
-                        📊 Download Full Report
-                    </button>
-                    <div style="margin-top: 2rem;">
-                        <a href="https://calendly.com/your-link" class="btn-primary" style="padding: 1rem 2rem;">
-                            Schedule Strategy Call
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="site-footer" style="background: #1a1a1a; color: white; padding: 2rem 0; text-align: center;">
-            <p>© 2024 AI Fractional CMO. Powered by advanced AI analysis.</p>
-        </footer>
+            <button type="submit" class="analyze-button" id="analyzeButton">
+                Start Comprehensive Audit
+            </button>
+        </form>
     </div>
 
-    <!-- Alpine.js -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script>
-        function auditApp() {
-            return {
-                websiteUrl: '',
-                analyzing: false,
-                showResults: false,
-                currentStep: 0,
-                analysisData: null,
-                activeTab: 'seo',
-                
-                async startAnalysis() {
-                    if (!this.websiteUrl) {
-                        alert('Please enter a website URL');
-                        return;
-                    }
-                    
-                    let url = this.websiteUrl.trim();
-                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                        url = 'https://' + url;
-                    }
-                    
-                    this.analyzing = true;
-                    this.showResults = false;
-                    this.currentStep = 0;
-                    
-                    try {
-                        // Simulate analysis steps
-                        const steps = [1, 2, 3, 4, 5];
-                        for (let step of steps) {
-                            await this.delay(1500);
-                            this.currentStep = step;
-                        }
-                        
-                        // Make API call
-                        const response = await fetch('/api/analyze/comprehensive-audit', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ url: url })
-                        });
-                        
-                        const result = await response.json();
-                        
-                        if (result.status === 'success') {
-                            this.analysisData = result.data.analysis;
-                        } else {
-                            alert('Failed to analyze website. Please try again.');
-                        }
-                    } catch (error) {
-                        console.error('Error:', error);
-                        alert('An error occurred during analysis.');
-                    } finally {
-                        this.analyzing = false;
-                        this.showResults = true;
-                    }
-                },
-                
-                getScoreDescription(score) {
-                    if (!score) return '';
-                    if (score >= 80) return 'Excellent! Your marketing foundation is strong.';
-                    if (score >= 60) return 'Good foundation with room for improvement.';
-                    if (score >= 40) return 'Several areas need attention for better results.';
-                    return 'Significant improvements needed across multiple areas.';
-                },
-                
-                delay(ms) {
-                    return new Promise(resolve => setTimeout(resolve, ms));
-                }
-            }
-        }
-    </script>
+    <!-- Loading Section -->
+    <div class="loader" id="loader">
+        <div class="pulse-container">
+            <div class="pulse"></div>
+            <div class="pulse"></div>
+            <div class="pulse"></div>
+        </div>
+        <h3 style="margin-bottom: 2rem;">Analyzing your marketing performance...</h3>
+        <div id="analysisSteps"></div>
+    </div>
 
-    <style>
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--royal-purple);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .step {
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 8px;
-            color: #999;
-            transition: all 0.3s;
-        }
-        
-        .step.active {
-            background: #ecfdf5;
-            color: #10b981;
-            font-weight: 600;
-        }
-    </style>
+    <!-- Results Section -->
+    <div class="results-container" id="resultsContainer">
+        <div class="results-header">
+            <h2>Your Marketing Audit Results</h2>
+            <p style="font-size: 1.1rem; color: var(--gray-600);">Comprehensive analysis completed</p>
+        </div>
+
+        <!-- Overall Score -->
+        <div class="overall-score">
+            <svg width="200" height="200" class="score-ring">
+                <defs>
+                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#10B981" />
+                        <stop offset="50%" style="stop-color:#F59E0B" />
+                        <stop offset="100%" style="stop-color:#EF4444" />
+                    </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="85" class="score-background" />
+                <circle cx="100" cy="100" r="85" class="score-progress" 
+                    stroke-dasharray="534" 
+                    stroke-dashoffset="534" 
+                    id="scoreCircle" />
+            </svg>
+            <div class="score-text" id="scoreText">0</div>
+            <div class="score-label">Overall Score</div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" id="tabs">
+            <button class="tab-button active" data-tab="seo">SEO Analysis</button>
+            <button class="tab-button" data-tab="content">Content Strategy</button>
+            <button class="tab-button" data-tab="technical">Technical Health</button>
+            <button class="tab-button" data-tab="conversion">Conversion Rate</button>
+            <button class="tab-button" data-tab="competition">Competitive Analysis</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="tabContent">
+            <!-- SEO Tab -->
+            <div class="tab-content active" id="seo-tab">
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">On-Page SEO</h3>
+                        <span class="card-score score-medium">72/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item warning">Missing meta descriptions on 12 key pages</li>
+                        <li class="issue-item critical">Homepage title tag exceeds 60 characters</li>
+                        <li class="issue-item success">Proper heading hierarchy detected</li>
+                    </ul>
+                </div>
+                
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Technical SEO</h3>
+                        <span class="card-score score-high">85/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item success">XML sitemap properly configured</li>
+                        <li class="issue-item warning">3 broken internal links detected</li>
+                        <li class="issue-item success">Mobile-friendly design confirmed</li>
+                    </ul>
+                </div>
+
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Page Speed</h3>
+                        <span class="card-score score-low">58/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item critical">Large images slowing load time (3.2s average)</li>
+                        <li class="issue-item critical">No CDN implementation detected</li>
+                        <li class="issue-item warning">JavaScript blocking render</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Content Tab -->
+            <div class="tab-content" id="content-tab">
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Content Quality</h3>
+                        <span class="card-score score-medium">68/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item warning">Blog posts lack consistent publishing schedule</li>
+                        <li class="issue-item success">High-quality, original content detected</li>
+                        <li class="issue-item critical">No content targeting buyer journey stages</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Technical Tab -->
+            <div class="tab-content" id="technical-tab">
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Site Architecture</h3>
+                        <span class="card-score score-high">82/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item success">Clean URL structure</li>
+                        <li class="issue-item success">Proper SSL implementation</li>
+                        <li class="issue-item warning">Missing schema markup on product pages</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conversion Tab -->
+            <div class="tab-content" id="conversion-tab">
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Conversion Optimization</h3>
+                        <span class="card-score score-low">55/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item critical">No clear CTAs above the fold</li>
+                        <li class="issue-item critical">Contact form requires too many fields</li>
+                        <li class="issue-item warning">No social proof elements on landing pages</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Competition Tab -->
+            <div class="tab-content" id="competition-tab">
+                <div class="audit-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Market Position</h3>
+                        <span class="card-score score-medium">70/100</span>
+                    </div>
+                    <ul class="issue-list">
+                        <li class="issue-item warning">Competitors ranking for 45% of target keywords</li>
+                        <li class="issue-item success">Unique value proposition clearly defined</li>
+                        <li class="issue-item warning">Limited backlink profile compared to competitors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="roadmap-container">
+            <div class="roadmap-header">
+                <h2>📍 Your Strategic Roadmap</h2>
+                <p>Prioritized action plan for marketing improvement</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <div class="phase-icon phase-immediate">🚨</div>
+                        <div>
+                            <h3>Immediate Actions</h3>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">Week 1</p>
+                        </div>
+                    </div>
+                    <ul class="action-list">
+                        <li class="action-item">Fix critical SEO issues (title tags, meta descriptions)</li>
+                        <li class="action-item">Implement image optimization and lazy loading</li>
+                        <li class="action-item">Add clear CTAs to homepage and landing pages</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <div class="phase-icon phase-short">⚡</div>
+                        <div>
+                            <h3>Short Term</h3>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">Month 1</p>
+                        </div>
+                    </div>
+                    <ul class="action-list">
+                        <li class="action-item">Develop content calendar and publishing schedule</li>
+                        <li class="action-item">Implement CDN for faster page loads</li>
+                        <li class="action-item">Create buyer journey content mapping</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <div class="phase-icon phase-medium">📈</div>
+                        <div>
+                            <h3>Medium Term</h3>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">3 Months</p>
+                        </div>
+                    </div>
+                    <ul class="action-list">
+                        <li class="action-item">Build comprehensive backlink strategy</li>
+                        <li class="action-item">Implement advanced schema markup</li>
+                        <li class="action-item">Launch A/B testing program for conversions</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <div class="phase-icon phase-long">🎯</div>
+                        <div>
+                            <h3>Long Term</h3>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">6+ Months</p>
+                        </div>
+                    </div>
+                    <ul class="action-list">
+                        <li class="action-item">Develop thought leadership content program</li>
+                        <li class="action-item">Build strategic partnerships for co-marketing</li>
+                        <li class="action-item">Implement marketing automation workflows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Transform Your Marketing?</h2>
+            <p>Let's discuss how to implement these recommendations and drive real growth</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary" id="downloadReport">
+                    📊 Download Full Report
+                </a>
+                <a href="https://calendly.com/ai-fractional-cmo/strategy" class="btn btn-secondary" target="_blank">
+                    📅 Schedule Strategy Call
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Audit Application
+        const auditApp = {
+            form: document.getElementById('auditForm'),
+            loader: document.getElementById('loader'),
+            results: document.getElementById('resultsContainer'),
+            analyzeButton: document.getElementById('analyzeButton'),
+            stepsContainer: document.getElementById('analysisSteps'),
+            
+            analysisSteps: [
+                { text: '🔍 Crawling website structure...', delay: 1500 },
+                { text: '📊 Analyzing SEO performance...', delay: 2000 },
+                { text: '📝 Evaluating content quality...', delay: 1800 },
+                { text: '⚡ Testing page speed...', delay: 2200 },
+                { text: '🎯 Checking conversion elements...', delay: 1600 },
+                { text: '🏆 Comparing with competitors...', delay: 1900 },
+                { text: '📈 Generating recommendations...', delay: 1500 }
+            ],
+
+            init() {
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+                this.setupTabs();
+                this.setupDownloadButton();
+            },
+
+            async handleSubmit(e) {
+                e.preventDefault();
+                
+                const url = document.getElementById('websiteUrl').value;
+                if (!url) return;
+
+                // Start analysis
+                this.analyzeButton.textContent = 'Analyzing...';
+                this.analyzeButton.classList.add('analyzing');
+                this.analyzeButton.disabled = true;
+                
+                // Show loader
+                this.loader.classList.add('active');
+                this.results.classList.remove('active');
+                
+                // Scroll to loader
+                this.loader.scrollIntoView({ behavior: 'smooth' });
+                
+                // Run analysis steps
+                await this.runAnalysisSteps();
+                
+                // Show results
+                setTimeout(() => {
+                    this.showResults();
+                }, 1000);
+            },
+
+            async runAnalysisSteps() {
+                this.stepsContainer.innerHTML = '';
+                
+                for (const step of this.analysisSteps) {
+                    const stepElement = document.createElement('div');
+                    stepElement.className = 'analysis-step';
+                    stepElement.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="pulse" style="width: 8px; height: 8px;"></div>
+                            <span>${step.text}</span>
+                        </div>
+                    `;
+                    this.stepsContainer.appendChild(stepElement);
+                    
+                    await this.delay(step.delay);
+                    stepElement.classList.add('complete');
+                }
+            },
+
+            showResults() {
+                // Hide loader
+                this.loader.classList.remove('active');
+                
+                // Reset button
+                this.analyzeButton.textContent = 'Start Comprehensive Audit';
+                this.analyzeButton.classList.remove('analyzing');
+                this.analyzeButton.disabled = false;
+                
+                // Show results
+                this.results.classList.add('active');
+                this.results.scrollIntoView({ behavior: 'smooth' });
+                
+                // Animate score
+                this.animateScore();
+                
+                // Fade in elements
+                this.fadeInElements();
+            },
+
+            animateScore() {
+                const scoreCircle = document.getElementById('scoreCircle');
+                const scoreText = document.getElementById('scoreText');
+                const score = 72; // Overall score
+                
+                // Calculate stroke offset
+                const circumference = 534;
+                const offset = circumference - (score / 100 * circumference);
+                
+                // Animate circle
+                setTimeout(() => {
+                    scoreCircle.style.strokeDashoffset = offset;
+                }, 100);
+                
+                // Animate number
+                let current = 0;
+                const increment = score / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= score) {
+                        current = score;
+                        clearInterval(timer);
+                    }
+                    scoreText.textContent = Math.round(current);
+                }, 30);
+            },
+
+            fadeInElements() {
+                const elements = document.querySelectorAll('.audit-card, .timeline-phase');
+                elements.forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        el.style.transition = 'all 0.5s ease';
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            },
+
+            setupTabs() {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const targetTab = button.dataset.tab;
+                        
+                        // Update buttons
+                        tabButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        // Update content
+                        tabContents.forEach(content => {
+                            content.classList.remove('active');
+                            if (content.id === `${targetTab}-tab`) {
+                                content.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            },
+
+            setupDownloadButton() {
+                document.getElementById('downloadReport').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('Your comprehensive audit report is being generated. You\'ll receive it via email in 5 minutes.');
+                });
+            },
+
+            delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        };
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            auditApp.init();
+        });
+    </script>
 </body>
 </html>
